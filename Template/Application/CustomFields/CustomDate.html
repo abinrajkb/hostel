@@ -1,0 +1,19 @@
+{% load crispy_forms_field %}
+
+<div class="col-sm-6">
+    {% if field.label == "Admission date"%}
+        <span class="label-input100">Date of</span>
+    {% endif %}
+    <div class="{{ wrapper_class }}" data-validate="{{ field.label }} is required">
+        {% crispy_field field 'class' 'input--style-1 js-datepicker' %}
+        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+    </div>
+</div>
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}

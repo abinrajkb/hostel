@@ -1,0 +1,22 @@
+{% load crispy_forms_field %}
+
+<div class="{{ wrapper_class }}" data-validate="Enter {{ field.name }}">
+    <span class="label-input100">{{ field.label }}</span>
+    <input class="input100" type="text" name="{{ field.label }}" placeholder="Enter {{ field.label }}">
+    <div class="invalid-feedback">
+        Please choose a username.
+    </div>
+    <span class="focus-input100"></span>
+</div>
+
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+
+
