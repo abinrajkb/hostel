@@ -540,3 +540,19 @@ input.input100 {
   color: #444;
   border-top: 3px solid #73cf41;
 }
+
+.verification-box{
+  text-align:center;
+  width:50%;
+  height:20%;
+  margin:auto;
+}
+
+.head{
+}
+
+.login100-error-msg{
+  color:white;
+  text-align: center;
+  font-size: 1em;
+}

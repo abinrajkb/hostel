@@ -24,6 +24,22 @@ class AuthenticationView(LoginView):
     def get_success_url(self):
         return "/apply/"
 
+    def post(self, request, *args, **kwargs):
+        print(request.POST)
+        try:
+            verifieduser = VerifiedUser.objects.get(username=request.POST['username'])
+            if (verifieduser.is_active):
+                return super().post(request, *args, **kwargs)
+
+            context = {'error_heading': 'A Verification link has been sent to your email account',
+                       'error_message': 'Please click on the link that has been sent to your email account to verify '
+                                        '   your email and continue login again'}
+        except VerifiedUser.DoesNotExist:
+
+            context = {'error_heading': 'Seems like your are not registered yet' ,
+                       'error_message': 'Please SignUp to continue'}
+        return render(request, 'login/login.html', context=context)
+
 
 def register(request):
     if request.method == 'POST':
@@ -47,11 +63,8 @@ def register(request):
 
 
 def verification(request, token):
-    print()
     print(token)
-    ver_user = VerifiedUser.objects.get(userhash=token)
-    verifying_user = User.objects.get(username=ver_user)
-    verifying_user.is_active= True
+    verifying_user = VerifiedUser.objects.get(userhash=token)
+    verifying_user.is_active = True
     verifying_user.save()
     return HttpResponseRedirect('/')
-

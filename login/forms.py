@@ -88,6 +88,8 @@ class OTPForm(Form):
 
 
 class LoginForm(AuthenticationForm):
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()

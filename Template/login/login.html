@@ -13,30 +13,45 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url({% static 'images/cusat.jpg'  %});">
+
+
+                {% if form %}
+                    <div class="login100-form-title" style="background-image: url({% static 'images/cusat.jpg' %});">
 					<span class="login100-form-title-1">
 						CUSAT HOSTELS
 
 					</span>
 
-                </div>
-
-                <div class="tab-group">
-                    <button id="log_btn" >Login</button>
-                    <button id="reg_btn" style="color: rgb(143, 142, 141);" >Signup</button>
-                </div>
-
-                <div id="Login" class="tabcontent" >
-                    {% load crispy_forms_tags %}
-                        {% crispy form %}
-                </div>
-                <div id="SignUp" class="tabcontent" style="display: none">
-
+                    </div>
+                    <div class="tab-group">
+                        <button id="log_btn">Login</button>
+                        {% if form1 %}
+                            <button id="reg_btn" style="color: rgb(143, 142, 141);">Signup</button>
+                        {% endif %}
+                    </div>
+                    <div id="Login" class="tabcontent">
                         {% load crispy_forms_tags %}
-                        {% crispy form1 %}
+                        {% crispy form %}
+                    </div>
 
+                    {% if form1 %}
+                        <div id="SignUp" class="tabcontent" style="display: none">
+                            {% load crispy_forms_tags %}
+                            {% crispy form1 %}
+                        </div>
+                    {% endif %}
+                {% else %}
 
-                </div>
+                    <div class="login100-form-title" style="background-image: url({% static 'images/cusat.jpg' %});">
+					<span class="login100-form-title-1">
+						{{ error_heading }}
+					</span>
+                        <p class="login100-error-msg m-b-26">
+                            {{ error_message }}</p>
+                        <a class="login100-form-btn m-t-10" href="/">Login</a>
+                    </div>
+
+                {% endif %}
 
 
             </div>

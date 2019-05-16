@@ -1,7 +1,13 @@
 from django.db import models
-from django.db.models import TextField, IntegerField, CharField, BooleanField, DateField
+from django.db.models import TextField, IntegerField, CharField, DateField
+from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 import login.models as login_models
+
+from datetime import datetime
+from django.utils import timezone
 
 state_choices = ((None, 'State'),
                  ("Andhra Pradesh", "Andhra Pradesh"),
@@ -40,7 +46,8 @@ state_choices = ((None, 'State'),
                  ("Uttar Pradesh", "Uttar Pradesh"),
                  ("West Bengal", "West Bengal"))
 
-district_choices = [(None,'District'), ('Anantapur', 'Anantapur'), ('Chittoor', 'Chittoor'), ('East Godavari', 'East Godavari'),
+district_choices = [(None, 'District'), ('Anantapur', 'Anantapur'), ('Chittoor', 'Chittoor'),
+                    ('East Godavari', 'East Godavari'),
                     ('Guntur', 'Guntur'),
                     ('Krishna', 'Krishna'), ('Kurnool', 'Kurnool'), ('Nellore', 'Nellore'), ('Prakasam', 'Prakasam'),
                     ('Srikakulam', 'Srikakulam'), ('Visakhapatnam', 'Visakhapatnam'), ('Vizianagaram', 'Vizianagaram'),
@@ -428,26 +435,38 @@ sub_category_choices = (
 )
 
 
-class Applications(login_models.VerifiedUser):
+class Applications(models.Model):
+    user = models.OneToOneField(login_models.VerifiedUser, on_delete=models.CASCADE)
     Registration_No = TextField(max_length=255)
     Name = TextField(max_length=255)
     Address_For_Communication = TextField(max_length=512)
     Permanent_Address = TextField(max_length=512)
-    Pincode = IntegerField()
+    Pincode = IntegerField(default=0, blank=False)
     State = CharField(max_length=255, choices=state_choices, default=0, blank=False)
     District = TextField(max_length=255, choices=district_choices, default=0, blank=False)
-    Mobile_Number = IntegerField()
+    Mobile_Number = CharField(max_length=255, default=0, blank=False)
     Name_of_Guardian = TextField(max_length=255)
-    PhoneNumber_of_Guardian = IntegerField()
+    PhoneNumber_of_Guardian = CharField(max_length=255, default=0, blank=False)
     Year_of_Study = IntegerField(choices=year_select, default=0, blank=False)
     Gender = CharField(max_length=255, choices=gender_select, default=0, blank=False)
     Category = CharField(max_length=255, choices=category_select, default=0, blank=False)
-    Sub_Category = CharField(max_length=255, choices=sub_category_choices, default=0, blank=False)
-    Physically_Handicapped = BooleanField()
-    Keralite = BooleanField()
+    Sub_Category = CharField(max_length=255, choices=sub_category_choices, default=None, blank=True,null=True)
+    Physically_Handicapped = IntegerField(default=0)
+    Keralite = IntegerField(default=0)
     Department = CharField(max_length=255, choices=department_select, default=0, blank=False)
     Course_of_study = CharField(max_length=255, choices=course_select, default=0, blank=False)
-    Admission_date = DateField()
-    Course_completion_date = DateField()
-    CAT_Rank = IntegerField()
-    Prime_Ministers_program = BooleanField()
+    Admission_date = DateField(default=timezone.now)
+    Course_completion_date = DateField(default=timezone.now)
+    CAT_Rank = IntegerField(default=0, blank=False)
+    Prime_Ministers_program = IntegerField(default=0)
+
+
+@receiver(post_save, sender=login_models.VerifiedUser)
+def create_user_application(sender, instance, created, **kwargs):
+    if created:
+        Applications.objects.create(user=instance)
+
+
+@receiver(post_save, sender=login_models.VerifiedUser)
+def save_user_application(sender, instance, **kwargs):
+    instance.applications.save()

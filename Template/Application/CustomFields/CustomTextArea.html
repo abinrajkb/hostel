@@ -1,8 +1,8 @@
 {% load crispy_forms_field %}
 
-<div class="{{ wrapper_class }}" data-validate="Enter {{ field.name }}">
+<div class="{{ wrapper_class }}" data-validate="Enter {{ field.label }}">
     <span class="label-input100">{{ field.label }}</span>
-    <textarea class="input100" type="text" name="{{ field.label }}" placeholder="Enter {{ field.label }}"></textarea>
+    <textarea class="input100" type="text" name="{{ field.name }}" placeholder="Enter {{ field.label }}" id = {{ field.name }}></textarea>
 
     <span class="focus-input100"></span>
 </div>

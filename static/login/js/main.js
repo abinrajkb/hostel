@@ -47,14 +47,13 @@ function hashing(event) {
             }
 
         } else {
-            document.getElementById('id_password1').setCustomValidity('Password Must be atleast 8 characters long, must include atleast a letter and alphabet');
+            document.getElementById('id_password1').setCustomValidity('Password Must be atleast 8 characters long, must include atleast a digit, an alphabet and no special characters');
             event.preventDefault();
         }
+    } else {
+        document.getElementById('username').setCustomValidity('Input must be a valid email');
+        event.preventDefault();
     }
-    else{
-            document.getElementById('username').setCustomValidity('Input must be a valid email');
-            event.preventDefault();
-        }
 }
 
 function hashing1(event) {
