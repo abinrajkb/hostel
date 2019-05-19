@@ -20,19 +20,22 @@ def submitted(request):
     user = request.user
     print(user)
 
-    applicationform = ApplicationForm(request.POST,request.FILES, instance=user.applications)
+    applicationform = ApplicationForm(request.POST, request.FILES, instance=user.applications)
     print(applicationform.errors)
     if applicationform.is_valid():
         applicationform.save()
         return HttpResponseRedirect("/apply/view")
     else:
-        context ={
-            "form":ApplicationForm(request.POST)
+        applicationform.show_error = True
+        context = {
+            "invalid":"The application is invalid please try again",
+            "form": applicationform
         }
         return render(request, 'Application/index.html', context)
 
+
 @login_required(redirect_field_name='/auth/')
 def view_application(request):
-    user  = request.user
+    user = request.user
 
-    return render(request,"Application/view.html",{})
+    return render(request, "Application/view.html", {})

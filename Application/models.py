@@ -444,7 +444,7 @@ class OverwriteStorage(FileSystemStorage):
 
 
 def user_directory_path(instance, filename):
-    extension = os.path.splitext(filename)[1]
+    extension = os.path.splitext(filename)[1].lower()
 
     return 'user_{0}{1}'.format(instance.user.id, extension)
 
@@ -474,6 +474,10 @@ class Applications(models.Model):
     CAT_Rank = IntegerField(default=0, null=True, blank=True)
     Prime_Ministers_program = IntegerField(default=0)
     upload = models.FileField(upload_to=user_directory_path,storage=OverwriteStorage(location=settings.MEDIA_ROOT),default='settings.MEDIA_ROOT/anonymous.jpg')
+    isvalid = models.BooleanField(default=1,blank=True,null=True)
+    distance = models.IntegerField(default=25,blank=True,null=True)
+    attendance = models.BooleanField(default=1,blank=True,null=True)
+    year_back = models.BooleanField(default=0,blank=True,null=True)
 
 @receiver(post_save, sender=login_models.VerifiedUser)
 def create_user_application(sender, instance, created, **kwargs):

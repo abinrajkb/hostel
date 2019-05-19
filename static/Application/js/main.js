@@ -204,6 +204,7 @@ function load_subcategory() {
 
 function new_function(event) {
 
+    change();
 
     var num_regex = /^\d{10}$/;
     var pin_regex = /^\d{6}$/;
@@ -222,7 +223,7 @@ function new_function(event) {
     for (i = 0; i < tag.length; i++) {
         tag[i].parentNode.classList.remove("alert-validate");
 
-        if (tag[i].value.length === 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
+        if (tag[i].value.length === 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id) === -1) {
             tag[i].parentNode.classList.add("alert-validate");
             event.preventDefault()
         }
@@ -231,9 +232,9 @@ function new_function(event) {
 
     for (i = 0; i < tag.length; i++) {
         tag[i].parentNode.classList.remove("alert-validate");
-        console.log(["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1)
+        console.log(["subcategory", "CAT_rank"].indexOf(tag[i].id) === -1)
         console.log(tag[i].id)
-        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
+        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id) === -1) {
             tag[i].parentNode.classList.add("alert-validate");
             event.preventDefault()
         }
@@ -242,7 +243,7 @@ function new_function(event) {
 
     for (i = 0; i < tag.length; i++) {
         tag[i].parentNode.classList.remove("alert-validate");
-        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
+        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id) === -1) {
             tag[i].parentNode.classList.add("alert-validate");
             event.preventDefault()
         }
@@ -1140,5 +1141,72 @@ function load_course() {
     }
 }
 
+// Used for creating a new FileList in a round-about way
+function FileListItem(a) {
+    a = [].slice.call(Array.isArray(a) ? a : arguments);
+    for (var c, b = c = a.length, d = !0; b-- && d;) d = a[b] instanceof File;
+    if (!d) throw new TypeError("expected argument to FileList is File or array of File objects");
+    for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(a[c]);
+    return b.files
+}
+
+function change() {
+
+    var filesToUpload = document.getElementById('fileInput').files;
+    console.log(filesToUpload)
+    var file = filesToUpload[0];
+
+    // Create an image
+    var img = document.createElement("img");
+    // Create a file reader
+    var reader = new FileReader();
+    // Set the image once loaded into file reader
+    reader.onload = function (e) {
+        img.src = e.target.result;
+
+        var canvas = document.createElement("canvas");
+        //var canvas = $("<canvas>", {"id":"testing"})[0];
+        var MAX_WIDTH = 400;
+        var MAX_HEIGHT = 300;
+        var width = img.width;
+        var height = img.height;
+
+        if (width > height) {
+            if (width > MAX_WIDTH) {
+                height *= MAX_WIDTH / width;
+                width = MAX_WIDTH;
+            }
+        } else {
+            if (height > MAX_HEIGHT) {
+                width *= MAX_HEIGHT / height;
+                height = MAX_HEIGHT;
+            }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+        // scale & draw the image onto the canvas
+        document.body.appendChild(canvas);
+
+        // Get the binary (aka blob)
+        crx.toBlob(blob => {
+            const resizedFile = new File([blob], file.name, file);
+            const fileList = new FileListItem(resizedFile);
+            alert("hello");
+            // temporary remove event listener since
+            // assigning a new filelist to the input
+            // will trigger a new change event...
+            document.getElementById('fileInput').onchange = null;
+            document.getElementById('fileInput').files = fileList;
+            document.getElementById('fileInput').onchange = change;
+        })
+    }
+}
+
+
+$("#fileInput").on('change', function () {
+    change()
+});
 
 
