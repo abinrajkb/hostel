@@ -7,7 +7,7 @@ from .forms import ApplicationForm
 from login.models import VerifiedUser
 
 
-@login_required(redirect_field_name='/')
+@login_required(redirect_field_name='/auth/')
 def apply(request):
     context = {
         "form": ApplicationForm()
@@ -15,18 +15,24 @@ def apply(request):
     return render(request, 'Application/index.html', context)
 
 
-@login_required(redirect_field_name='/')
+@login_required(redirect_field_name='/auth/')
 def submitted(request):
     user = request.user
     print(user)
 
-    applicationform = ApplicationForm(request.POST, instance=user.applications)
+    applicationform = ApplicationForm(request.POST,request.FILES, instance=user.applications)
     print(applicationform.errors)
     if applicationform.is_valid():
         applicationform.save()
-        return HttpResponse('Hiiiii')
+        return HttpResponseRedirect("/apply/view")
     else:
         context ={
             "form":ApplicationForm(request.POST)
         }
         return render(request, 'Application/index.html', context)
+
+@login_required(redirect_field_name='/auth/')
+def view_application(request):
+    user  = request.user
+
+    return render(request,"Application/view.html",{})

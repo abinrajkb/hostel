@@ -8,9 +8,9 @@
 
 {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand " href="{% url 'Homapage:homepage' %}">
             <img class="img-responsive2" src="{% static 'images/logo.svg' %}" width="40" height="40" alt="CUSAT"> <span
-                id="sp">CENTRAL OFFICE FOR UNIVERSITY HOSTEL</span>
+                id="sp">CENTRAL OFFICE FOR UNIVERSITY HOSTELS</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,18 +18,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <div class="selector"></div>
+            <ul class="navbar-nav mr-auto">
+            </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item ">
                     <a href="#" class="bez nav-link active1">Apply</a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="bez nav-link">View</a>
+                    <a href="{% url 'Application:view' %}" class="bez nav-link">View</a>
                 </li>
                 <li class="nav-item ">
                     <a href="#" class="bez nav-link">Result</a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{% url logout %}" class="bez nav-link">Logout</a>
+                    <a href="{% url 'login:Logout' %}" class="bez nav-link">Logout</a>
 
                 </li>
             </ul>
@@ -48,7 +50,7 @@
 					</span>
             </div>
             <div id="Login" class="tabcontent">
-                    {% crispy form %}
+                {% crispy form %}
             </div>
         </div>
     </div>

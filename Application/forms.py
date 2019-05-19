@@ -1,3 +1,5 @@
+import re
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Field, Submit
 from crispy_forms.utils import TEMPLATE_PACK
@@ -5,6 +7,7 @@ from django.forms import ModelForm, DateField
 from django.utils import timezone
 
 from Hostel import settings
+from login.models import ApplicationSettings
 from .models import Applications
 
 
@@ -42,7 +45,7 @@ class ApplicationForm(ModelForm):
         fields = ['Registration_No', 'Name', 'Address_For_Communication', 'Permanent_Address', 'Pincode', 'State',
                   'District', 'Mobile_Number', 'Name_of_Guardian', 'PhoneNumber_of_Guardian', 'Year_of_Study', "Gender",
                   "Category", "Physically_Handicapped", 'Keralite', "Sub_Category", "Department", "Course_of_study",
-                  "Course_completion_date", "Admission_date", "CAT_Rank", "Prime_Ministers_program"]
+                  "Course_completion_date", "Admission_date", "CAT_Rank", "Prime_Ministers_program","upload"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,14 +62,14 @@ class ApplicationForm(ModelForm):
             CustomTextInput('Name', ),
             CustomTextInput('Address_For_Communication', template='Application/CustomFields//CustomTextArea.html'),
             CustomTextInput('Permanent_Address', template='Application/CustomFields/CustomTextArea.html'),
-            Div(Div(CustomTextInput('Pincode', css_class='wrap-input100 validate-input m-b-18 validating', id='pin'),
+            Div(Div(CustomTextInput('Pincode', css_class='wrap-input100 validate-input m-b-18 validating', css_id='pin'),
                     css_class="col-sm-4"),
                 Div(css_class='col-sm-3'),
                 Div(CustomTextInput('State', template='Application/CustomFields//CustomSelect.html',
                                     onchange="load_district()", id="state"), css_class="col-sm-5 m-t-11"),
                 css_class='form-row'),
             CustomTextInput('District', template='Application/CustomFields/CustomSelect.html', id='district'),
-            CustomTextInput('Mobile_Number', id='mobile'),
+            CustomTextInput('Mobile_Number', css_id='mobile'),
             CustomTextInput('Name_of_Guardian'),
             CustomTextInput('PhoneNumber_of_Guardian'),
             CustomTextInput('Year_of_Study', template='Application/CustomFields/CustomSelect.html', id='Year',
@@ -98,22 +101,57 @@ class ApplicationForm(ModelForm):
             Div(
                 CustomTextInput('Admission_date', template='Application/CustomFields/CustomDate.html',
                                 wrapper_class="wrap-input100 validate-input m-b-18", placeholder="Admission",
-                                type='date'),
+                                type_id='date'),
                 CustomTextInput('Course_completion_date', template='Application/CustomFields/CustomDate.html',
                                 wrapper_class="wrap-input100 validate-input m-b-18", placeholder="Course Completion",
-                                type='date'),
+                                type_id='date'),
                 css_class='form-row w-100',
             ),
             Div(
-                Div(CustomTextInput('CAT_Rank', css_class='wrap-input100 validate-input m-b-18 validating', id='num'),
+                Div(CustomTextInput('CAT_Rank', css_class='wrap-input100 validate-input m-b-18 validating', css_id='CAT_rank'),
                     css_class="col-sm-3",
                     ),
                 Div(css_class='col-sm-5'),
                 CustomTextInput('Prime_Ministers_program', template='Application/CustomFields/CustomBool.html'),
                 css_class="form-row w-100"),
+
+            CustomTextInput('upload',  type_id='file'),
+            Div(template="Application/CustomFields/CustomDeclaration.html"),
             Div(
-                Submit('Submit', 'Submit', css_class="login100-form-btn w-25", onclick="new_function()"),
+                Submit('Submit', 'Submit', css_class="login100-form-btn w-25", onclick="new_function(event)"),
                 css_class="container-login100-form-btn"
 
             )
         )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        try:
+            mobile = cleaned_data["Mobile_Number"]
+            reg =  re.compile(r"^\d{3}\d{3}\d{4}$")
+            if not reg.match(str(mobile)):
+                self.add_error('Mobile_Number', "mobile number is not valid")
+        except KeyError:
+            self.add_error('Mobile_Number', "mobile number is not valid")
+
+
+        try:
+            pin = cleaned_data["Pincode"]
+            pin_reg =  re.compile(r"^\d{6}$")
+            if not pin_reg.match(str(pin)):
+                self.add_error('Pincode', "Pincode is not valid")
+        except KeyError:
+            self.add_error('Pincode', "Pincode is not valid")
+
+
+        exeception_list = ["Ph.D",'M.Phil']
+        try:
+            allow_application = ApplicationSettings.objects.get(pk = 1)
+            course = cleaned_data["Course_of_study"]
+            if course not in exeception_list and  not allow_application.active_applications:
+                self.add_error("Course_of_study","The Time Frame for this Application is over")
+
+        except KeyError:
+            self.add_error("Course_of_study","please select a value")
+
+        return cleaned_data

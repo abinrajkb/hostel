@@ -1,3 +1,12 @@
+$(document).ready(function () {
+    $("input").on('click', function () {
+        this.parentNode.classList.remove("alert-validate")
+    });
+    $('select').on('change', function () {
+        this.parentNode.classList.remove("alert-validate")
+    });
+});
+
 (function ($) {
     'use strict';
     /*==================================================================
@@ -73,7 +82,6 @@
     $("#Address_For_Communication").on('keydown', function (event) {
 
         var dInput = document.getElementById('Address_For_Communication').value;
-        console.log(dInput)
         var cbox = document.getElementById('Permanent_Address');
         var cInput = cbox.value;
         var k = event.keyCode
@@ -121,7 +129,6 @@
 
 
     $(".bez").on("click", function (e) {
-        e.preventDefault();
 
         $('.bez').removeClass("active1");
         $(this).addClass('active1');
@@ -195,69 +202,64 @@ function load_subcategory() {
     }
 }
 
-function new_function() {
+function new_function(event) {
+
+
+    var num_regex = /^\d{10}$/;
+    var pin_regex = /^\d{6}$/;
+    var numfield = document.getElementById('mobile').value;
+    var pinfield = document.getElementById('pin').value;
+    console.log(numfield);
+
+    var num_test = (num_regex.test("" + numfield))
+    console.log(num_test);
+
+    var pin_test = pin_regex.test("" + pinfield)
+    console.log(pin_test);
+
 
     var tag = document.getElementsByTagName('input');
     for (i = 0; i < tag.length; i++) {
-
         tag[i].parentNode.classList.remove("alert-validate");
-        if (tag[i].value.length == 0 && !tag[i].hidden) {
+
+        if (tag[i].value.length === 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
             tag[i].parentNode.classList.add("alert-validate");
-            console.log(tag[i].name);
+            event.preventDefault()
         }
     }
-    var tag = document.getElementsByTagName('select');
+    tag = document.getElementsByTagName('select');
+
     for (i = 0; i < tag.length; i++) {
-
         tag[i].parentNode.classList.remove("alert-validate");
-        if (tag[i].value.length == 0 && !tag[i].hidden) {
+        console.log(["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1)
+        console.log(tag[i].id)
+        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
             tag[i].parentNode.classList.add("alert-validate");
-            console.log(tag[i].name);
+            event.preventDefault()
         }
     }
-    var tag = document.getElementsByTagName('textarea');
+    tag = document.getElementsByTagName('textarea');
+
     for (i = 0; i < tag.length; i++) {
-
         tag[i].parentNode.classList.remove("alert-validate");
-        if (tag[i].value.length == 0 && !tag[i].hidden) {
+        if (tag[i].value.length == 0 && !tag[i].hidden && ["subcategory", "CAT_rank"].indexOf(tag[i].id)===-1) {
             tag[i].parentNode.classList.add("alert-validate");
-            console.log(tag[i].name);
+            event.preventDefault()
         }
+
     }
 
-    validate()
+    if (!pin_test) {
+        $("#pin").parent().addClass("alert-validate");
+        event.preventDefault();
+    }
 
+    if (!num_test) {
+        $("#mobile").parent().addClass("alert-validate");
+        event.preventDefault();
+    }
 }
 
-function validate() {
-
-    num_regex = /^[0-9]*$/;
-    pin_regex = /^\d{6}$/;
-    numfield = document.getElementById('num').value;
-    pinfield = document.getElementById('pin').value;
-    document.getElementById('num').parentNode.classList.add("alert-validate");
-    document.getElementById('pin').parentNode.classList.add("alert-validate");
-    console.log(pinfield.length);
-    console.log(numfield.length);
-    if (pinfield.length > 0) {
-        console.log('haha');
-        document.getElementById('pin').parentNode.classList.remove("alert-validate");
-        if (!pin_regex.test(pinfield)) {
-            console.log('hehe');
-            document.getElementById('pin').parentNode.classList.add("alert-validate");
-            event.preventDefault();
-        }
-    }
-
-
-    if (numfield.length > 0) {
-        document.getElementById('num').parentNode.classList.remove("alert-validate");
-        if (!num_regex.test(numfield)) {
-            document.getElementById('num').parentNode.classList.add("alert-validate");
-            event.preventDefault();
-        }
-    }
-}
 
 function load_state() {
     load_subcategory()
@@ -1018,15 +1020,6 @@ function load_state() {
 
     };
 
-    console.log(districts)
-    var state_select = document.getElementById("state");
-    var i;
-    for (i in districts) {
-        var options = document.createElement("option");
-        options.text = i;
-        options.value = i;
-        state_select.add(options);
-    }
     load_district()
 }
 

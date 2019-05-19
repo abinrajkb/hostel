@@ -26,7 +26,7 @@ class UserForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'login100-form validate-form'
-        self.helper.form_action = "/register/"
+        self.helper.form_action = "/auth/register/"
         self.helper.form_id = "RegistrationForm"
         self.fields["username"].label = "Email Address"
         self.fields["username"].widget.attrs["type"] = "email"
@@ -65,7 +65,7 @@ class OTPForm(Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'login100-form validate-form'
-        self.helper.form_action = "/otp/"
+        self.helper.form_action = "/auth/otp/"
         self.helper.attrs['onSubmit'] = "hashing1(event)"
         self.helper.layout = Layout(
 
@@ -97,7 +97,7 @@ class LoginForm(AuthenticationForm):
         fields = ['username', 'password']
         self.fields["username"].label = "Email Address"
 
-        self.helper.form_action = "/"
+        self.helper.form_action = "/auth/"
         self.helper.attrs['onSubmit'] = "hashing1(event)"
         for field in fields:
             self.fields[field].help_text = None

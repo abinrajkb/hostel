@@ -2,7 +2,7 @@
 
 <div class="{{ wrapper_class }}" data-validate="Enter {{ field.name }}">
     <span class="label-input100">{{ field.label }}</span>
-    <input class="input100" type="text" name="{{ field.name }}" placeholder="Enter {{ field.label }}"  id = "{{ id }}">
+    <input type = "{{ type_id|default:'text' }}" class="input100" name="{{ field.name }}" placeholder="Enter {{ field.label }}"  id = "{{css_id}}" >
     <span class="focus-input100"></span>
 </div>
 

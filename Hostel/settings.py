@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+ALLOWED_HOSTS = ['127.0.0.1', '172.16.14.171','192.168.43.132','192.168.15.143']
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,8 +25,6 @@ SECRET_KEY = 'c-_w@(j%+kwy-ty(cdmm6y=gempjnv9(^&d$jko^p3zd3c4pwe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'crispy_forms',
-    'Application'
+    'Application',
+    'Homepage',
 
 ]
 
@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -102,13 +103,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGOUT_REDIRECT_URL='/'
+LOGOUT_REDIRECT_URL = '/'
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+
+DATE_INPUT_FORMATS = ('%d/%m/%Y', '%Y-%m-%d')
 
 USE_I18N = True
 
@@ -134,3 +137,16 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'cusathostel@gmail.com'
 EMAIL_HOST_PASSWORD = 'hostelmanagement@cusat'
+
+AUTH_USER_MODEL = 'login.VerifiedUser'
+
+LOGIN_URL = '/auth/'
+
+LOGOUT_URL = '/auth/logout/'
+
+LOGIN_REDIRECT_URL = '/apply/'
+
+CURRENT_DOMAIN_NAME_MAIN = "http://192.168.15.143:8000/"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

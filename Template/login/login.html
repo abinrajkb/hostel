@@ -24,9 +24,9 @@
 
                     </div>
                     <div class="tab-group">
-                        <button id="log_btn">Login</button>
+                        <button id="log_btn">{{ login|default:"Login" }}</button>
                         {% if form1 %}
-                            <button id="reg_btn" style="color: rgb(143, 142, 141);">Signup</button>
+                            <button id="reg_btn" style="color: rgb(143, 142, 141);">{{ signup|default:"Sign Up" }}</button>
                         {% endif %}
                     </div>
                     <div id="Login" class="tabcontent">
@@ -48,7 +48,7 @@
 					</span>
                         <p class="login100-error-msg m-b-26">
                             {{ error_message }}</p>
-                        <a class="login100-form-btn m-t-10" href="/">Login</a>
+                        <a class="login100-form-btn m-t-10" href="{% url 'login:index' %}">Register</a>
                     </div>
 
                 {% endif %}

@@ -1,8 +1,11 @@
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.db.models import TextField, IntegerField, CharField, DateField
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+import os
 
 import login.models as login_models
 
@@ -428,11 +431,22 @@ year_select = (
 )
 
 sub_category_choices = (
-    (None, "Select Course"),
+    (None, "Select Sub Category"),
     ("OBH", "OBH"),
     ("OBX (LC,Anglo India)", "OBX (LC,Anglo Indian"),
     ("MS (Muslim)", "MS (Muslim)")
 )
+class OverwriteStorage(FileSystemStorage):
+
+    def get_available_name(self, name, max_length=None):
+        self.delete(name)
+        return name
+
+
+def user_directory_path(instance, filename):
+    extension = os.path.splitext(filename)[1]
+
+    return 'user_{0}{1}'.format(instance.user.id, extension)
 
 
 class Applications(models.Model):
@@ -450,16 +464,16 @@ class Applications(models.Model):
     Year_of_Study = IntegerField(choices=year_select, default=0, blank=False)
     Gender = CharField(max_length=255, choices=gender_select, default=0, blank=False)
     Category = CharField(max_length=255, choices=category_select, default=0, blank=False)
-    Sub_Category = CharField(max_length=255, choices=sub_category_choices, default=None, blank=True,null=True)
+    Sub_Category = CharField(max_length=255, choices=sub_category_choices, default=None, blank=True, null=True)
     Physically_Handicapped = IntegerField(default=0)
     Keralite = IntegerField(default=0)
     Department = CharField(max_length=255, choices=department_select, default=0, blank=False)
     Course_of_study = CharField(max_length=255, choices=course_select, default=0, blank=False)
     Admission_date = DateField(default=timezone.now)
     Course_completion_date = DateField(default=timezone.now)
-    CAT_Rank = IntegerField(default=0, blank=False)
+    CAT_Rank = IntegerField(default=0, null=True, blank=True)
     Prime_Ministers_program = IntegerField(default=0)
-
+    upload = models.FileField(upload_to=user_directory_path,storage=OverwriteStorage(location=settings.MEDIA_ROOT),default='settings.MEDIA_ROOT/anonymous.jpg')
 
 @receiver(post_save, sender=login_models.VerifiedUser)
 def create_user_application(sender, instance, created, **kwargs):

@@ -1,12 +1,10 @@
 {% load crispy_forms_field %}
 
-<div class="col-sm-6">
-    {% if field.label == "Admission date" %}
-        <span class="label-input100">Date of</span>
-    {% endif %}
+<div class="col-sm-12">
+        <span class="label-input100">Date of {{ placeholder|default_if_none:field.name }}</span>
     <div class="{{ wrapper_class }}" data-validate="{{ field.label }} is required">
-        <input type="{{ type }}" name="{{ field.name }}" placeholder="Course Completion"
-               class="dateinput input--style-1" required="" id="id_{{ field.name }} date-format='{{ date_format }}">
+        <input type="{{ type_id }}" name="{{ field.name }}"
+               class="input--style-1" required="" id="id_{{ field.name }}" >
     </div>
 </div>
 
