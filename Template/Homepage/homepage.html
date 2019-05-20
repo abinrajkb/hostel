@@ -26,13 +26,16 @@
                 <li class="nav-item ">
                     <a href="#" class="bez nav-link">Rules and Regulations</a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{% url 'Homepage:details' %}" class="bez nav-link">More Info</a>
+                </li>
             </ul>
         </div>
     </nav>
 {% endblock %}
 {% block contents %}
     <div class="image bg-image bg-parallax">
-        <h1 class="heading">UNIVERSITY HOSTELS</h1>
+        <h1 class="heading">COCHIN UNIVERSITY HOSTELS</h1>
         <a class="main-button icon-button" href="{% url 'login:index' %}">LOGIN</a>
     </div>
     <div class="swiper-container"

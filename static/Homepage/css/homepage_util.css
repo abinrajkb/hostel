@@ -1,21 +1,21 @@
 @font-face {
-  font-family: Poppins-Regular;
-  src: url('/static/fonts/poppins/Poppins-Regular.ttf');
+    font-family: Poppins-Regular;
+    src: url('/static/fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
-  font-family: Poppins-Medium;
-  src: url('/static/fonts/poppins/Poppins-Medium.ttf');
+    font-family: Poppins-Medium;
+    src: url('/static/fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
-  font-family: Poppins-Bold;
-  src: url('/static/fonts/poppins/Poppins-Bold.ttf');
+    font-family: Poppins-Bold;
+    src: url('/static/fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
-  font-family: Poppins-SemiBold;
-  src: url('/static/fonts/poppins/Poppins-SemiBold.ttf');
+    font-family: Poppins-SemiBold;
+    src: url('/static/fonts/poppins/Poppins-SemiBold.ttf');
 }
 
 
@@ -25,7 +25,7 @@
     background-blend-mode: overlay;
     background-size: cover;
     height: 100vh;
-    margin-top: -20px;
+    padding-top: 10px;
 }
 
 .image .heading {
@@ -34,7 +34,7 @@
     padding-top: 150px;
     z-index: 1;
     font-family: Poppins-Bold;
-    font-size:10vw;
+    font-size: 8vw;
     text-transform: uppercase;
 
 }
@@ -42,9 +42,10 @@
 
 @media screen and (max-width: 510px) {
     .image .heading {
-        padding-top:250px;
+        padding-top: 250px;
     }
-    .main-button{
+
+    .main-button {
         margin-top: 60px;
     }
 }
@@ -81,16 +82,15 @@ p {
 }
 
 
-
 .main-button {
 
     position: relative;
     display: inline-block;
-    padding: 10px 30px;
+    padding: 15px 30px;
     background-color: #38c225;
     border: 2px solid transparent;
     border-radius: 60px;
-    margin-top: 20px;
+    margin-top: 70px;
     color: #FFF;
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
@@ -100,7 +100,7 @@ p {
 
 
 @media screen and (max-width: 510px) {
-    .main-button{
+    .main-button {
         margin-top: 120px;
     }
 }
@@ -151,3 +151,8 @@ p {
         font-size: 10px;
     }
 }
+
+imagez.heading {
+    font-size: 2vw;
+}
+

@@ -436,6 +436,10 @@ sub_category_choices = (
     ("OBX (LC,Anglo India)", "OBX (LC,Anglo Indian"),
     ("MS (Muslim)", "MS (Muslim)")
 )
+
+hostel_select = (
+    (None,"Select"),
+)
 class OverwriteStorage(FileSystemStorage):
 
     def get_available_name(self, name, max_length=None):
@@ -478,6 +482,8 @@ class Applications(models.Model):
     distance = models.IntegerField(default=25,blank=True,null=True)
     attendance = models.BooleanField(default=1,blank=True,null=True)
     year_back = models.BooleanField(default=0,blank=True,null=True)
+    admitted = models.BooleanField(default=0,blank=True,null=True)
+    Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None,blank=True,null=True)
 
 @receiver(post_save, sender=login_models.VerifiedUser)
 def create_user_application(sender, instance, created, **kwargs):
