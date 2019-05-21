@@ -147,7 +147,7 @@ LOGOUT_URL = '/auth/logout/'
 
 LOGIN_REDIRECT_URL = '/apply/'
 
-CURRENT_DOMAIN_NAME_MAIN = "http://192.168.15.143:8000/"
+CURRENT_DOMAIN_NAME_MAIN = "https://hostels.cusat.ac.in"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
