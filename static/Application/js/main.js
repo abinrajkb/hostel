@@ -1141,7 +1141,6 @@ function load_course() {
     }
 }
 
-// Used for creating a new FileList in a round-about way
 function FileListItem(a) {
     a = [].slice.call(Array.isArray(a) ? a : arguments);
     for (var c, b = c = a.length, d = !0; b-- && d;) d = a[b] instanceof File;
@@ -1150,27 +1149,24 @@ function FileListItem(a) {
     return b.files
 }
 
+// Used for creating a new FileList in a round-about way
 function change() {
 
-    var filesToUpload = document.getElementById('fileInput').files;
-    console.log(filesToUpload)
+    var filesToUpload = document.getElementById("fileInput").files;
     var file = filesToUpload[0];
-
-    // Create an image
+    var canvas = document.createElement('canvas');
+    var fileName =file.name.split(".")[0];
     var img = document.createElement("img");
-    // Create a file reader
     var reader = new FileReader();
-    // Set the image once loaded into file reader
     reader.onload = function (e) {
-        img.src = e.target.result;
-
-        var canvas = document.createElement("canvas");
-        //var canvas = $("<canvas>", {"id":"testing"})[0];
-        var MAX_WIDTH = 400;
+        img.src = e.target.result
+    };
+    reader.readAsDataURL(file);
+    img.onload = function () {
+        var MAX_WIDTH = 300;
         var MAX_HEIGHT = 300;
         var width = img.width;
         var height = img.height;
-
         if (width > height) {
             if (width > MAX_WIDTH) {
                 height *= MAX_WIDTH / width;
@@ -1182,25 +1178,23 @@ function change() {
                 height = MAX_HEIGHT;
             }
         }
-        canvas.width = width;
-        canvas.height = height;
         var ctx = canvas.getContext("2d");
+        canvas.height = height;
+        canvas.width = width;
         ctx.drawImage(img, 0, 0, width, height);
-        // scale & draw the image onto the canvas
-        document.body.appendChild(canvas);
+        var dataurl = canvas.toDataURL("image/png");
 
-        // Get the binary (aka blob)
-        crx.toBlob(blob => {
-            const resizedFile = new File([blob], file.name, file);
-            const fileList = new FileListItem(resizedFile);
-            alert("hello");
-            // temporary remove event listener since
-            // assigning a new filelist to the input
-            // will trigger a new change event...
+        canvas.toBlob(function (blob) {
+            var file = new File([blob], fileName+".png",);
+            console.log(file);
+            const fileList = new FileListItem(file);
             document.getElementById('fileInput').onchange = null;
             document.getElementById('fileInput').files = fileList;
-            document.getElementById('fileInput').onchange = change;
-        })
+            document.getElementById('fileInput').onchange = function () {
+                change();
+            }
+        });
+
     }
 }
 
