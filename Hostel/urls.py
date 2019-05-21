@@ -22,8 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('login.urls', namespace="login")),
     path('apply/', include('Application.urls', namespace="Application")),
-    path('',include('Homepage.urls', namespace="Homepage")),
-
+    path('', include('Homepage.urls', namespace="Homepage")),
+    path('department/', include('Department.urls', namespace="Department")),
+    path('office/', include('Hostel_office.urls', namespace="Hostel_office")),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

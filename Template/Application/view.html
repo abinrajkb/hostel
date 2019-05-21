@@ -39,6 +39,7 @@
     </nav>
 {% endblock %}
 {% block contents %}
+    {% if request.user.applications.Name %}
 
     <div class="container-login100 w-100">
         <div class="wrap-login100">
@@ -228,6 +229,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
 {% block scripts %}
     <script src="{% static 'Application/js/main.js' %}"></script>

@@ -113,4 +113,3 @@ class LoginForm(AuthenticationForm):
         )
 
 
-forms.Form
