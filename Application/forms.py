@@ -45,7 +45,7 @@ class ApplicationForm(ModelForm):
         fields = ['Registration_No', 'Name', 'Address_For_Communication', 'Permanent_Address', 'Pincode', 'State',
                   'District', 'Mobile_Number', 'Name_of_Guardian', 'PhoneNumber_of_Guardian', 'Year_of_Study', "Gender",
                   "Category", "Physically_Handicapped", 'Keralite', "Sub_Category", "Department", "Course_of_study",
-                  "Course_completion_date", "Admission_date", "CAT_Rank", "Prime_Ministers_program", "upload"]
+                  "Course_completion_date", "Admission_date", "CAT_Rank", "Prime_Ministers_program", "Photo_upload"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -117,7 +117,7 @@ class ApplicationForm(ModelForm):
                 CustomTextInput('Prime_Ministers_program', template='Application/CustomFields/CustomBool.html'),
                 css_class="form-row w-100"),
 
-            CustomTextInput('upload', type_id='file', css_id="fileInput"),
+            CustomTextInput('Photo_upload', type_id='file', css_id="fileInput"),
             Div(template="Application/CustomFields/CustomDeclaration.html"),
             Div(
                 Submit('Submit', 'Submit', css_class="login100-form-btn w-25", onclick="new_function(event)"),

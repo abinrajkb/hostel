@@ -69,7 +69,7 @@ function hashing(event) {
 function hashing1(event) {
     var raw1 = document.getElementById('id_password').value;
     document.getElementById('id_password').value = sha512(raw1);
-    console.log(sha512(raw1));
+    // console.log(sha512(raw1));
 
 
 }

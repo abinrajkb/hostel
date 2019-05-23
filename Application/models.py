@@ -413,6 +413,7 @@ course_select = [(None, 'Select Course'), ('M.Voc', 'M.Voc'), ('B.Voc', 'B.Voc')
                  ('Information Technology(B.Tech)', 'Information Technology(B.Tech)'),
                  ('Mechanical Engg.(B.Tech)', 'Mechanical Engg.(B.Tech)'),
                  ('Safety & Fire Engg(B.Tech)', 'Safety & Fire Engg(B.Tech)'),
+                 ('Civil Engg.(M.Tech)', 'Civil Engg.(M.Tech)'),
                  ('Computer Science & Engg.(M.Tech)', 'Computer Science & Engg.(M.Tech)'),
                  ('Electrical and Electronics Engg.(M.Tech)', 'Electrical and Electronics Engg.(M.Tech)'),
                  ('Electronics & Communication Engg.(M.Tech)', 'Electronics & Communication Engg.(M.Tech)'),
@@ -438,8 +439,10 @@ sub_category_choices = (
 )
 
 hostel_select = (
-    (None,"Select"),
+    (None, "Select"),
 )
+
+
 class OverwriteStorage(FileSystemStorage):
 
     def get_available_name(self, name, max_length=None):
@@ -477,13 +480,16 @@ class Applications(models.Model):
     Course_completion_date = DateField(default=timezone.now)
     CAT_Rank = IntegerField(default=0, null=True, blank=True)
     Prime_Ministers_program = IntegerField(default=0)
-    upload = models.FileField(upload_to=user_directory_path,storage=OverwriteStorage(location=settings.MEDIA_ROOT),default='settings.MEDIA_ROOT/anonymous.jpg')
-    isvalid = models.BooleanField(default=1,blank=True,null=True)
-    distance = models.IntegerField(default=25,blank=True,null=True)
-    attendance = models.BooleanField(default=1,blank=True,null=True)
-    year_back = models.BooleanField(default=0,blank=True,null=True)
-    admitted = models.BooleanField(default=0,blank=True,null=True)
-    Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None,blank=True,null=True)
+    Photo_upload = models.FileField(upload_to=user_directory_path, storage=OverwriteStorage(location=settings.MEDIA_ROOT),
+                              default='settings.MEDIA_ROOT/anonymous.jpg')
+    isvalid = models.BooleanField(default=1, blank=True, null=True)
+    category_isvalid = models.BooleanField(default=1, blank=True, null=True)
+    distance = models.IntegerField(default=25, blank=True, null=True)
+    attendance = models.BooleanField(default=1, blank=True, null=True)
+    year_back = models.BooleanField(default=0, blank=True, null=True)
+    admitted = models.BooleanField(default=0, blank=True, null=True)
+    Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None, blank=True, null=True)
+
 
 @receiver(post_save, sender=login_models.VerifiedUser)
 def create_user_application(sender, instance, created, **kwargs):

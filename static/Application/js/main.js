@@ -1116,7 +1116,7 @@ function load_course() {
             "Information Technology(B.Tech)",
             "Mechanical Engg.(B.Tech)",
             "Safety & Fire Engg(B.Tech)",
-            "Civil Engg.(B.Tech)",
+            "Civil Engg.(M.Tech)",
             "Computer Science & Engg.(M.Tech)",
             "Electrical and Electronics Engg.(M.Tech)",
             "Electronics & Communication Engg.(M.Tech)",

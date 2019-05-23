@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c-_w@(j%+kwy-ty(cdmm6y=gempjnv9(^&d$jko^p3zd3c4pwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -147,7 +147,7 @@ LOGOUT_URL = '/auth/logout/'
 
 LOGIN_REDIRECT_URL = '/apply/'
 
-CURRENT_DOMAIN_NAME_MAIN = "https://hostels.cusat.ac.in"
+CURRENT_DOMAIN_NAME_MAIN = "https://hostels.cusat.ac.in/"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

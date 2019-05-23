@@ -10,8 +10,11 @@ def test(user):
 
 
 # Create your views here.
-@login_required(redirect_field_name='/auth/')
-@user_passes_test(test, redirect_field_name='/')
+
 def index(request):
     obj = Applications.objects.all()
-    return render(request, 'Department/index.html', {'obj': obj})
+    return render(request, 'Department/index.html', {'models': obj})
+
+
+def process_data(request):
+    pass

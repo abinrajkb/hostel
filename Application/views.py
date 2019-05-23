@@ -39,3 +39,5 @@ def view_application(request):
     user = request.user
 
     return render(request, "Application/view.html", {})
+
+
