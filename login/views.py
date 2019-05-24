@@ -26,9 +26,13 @@ class AuthenticationView(LoginView):
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
     def post(self, request, *args, **kwargs):
-        print(request.POST)
+        request.POST._mutable = True
+        request.POST['username'] = request.POST['username'].lower()
+        request.POST._mutable = False
+
         try:
-            verifieduser = VerifiedUser.objects.get(username=request.POST['username'])
+
+            verifieduser = VerifiedUser.objects.get(username=request.POST['username'].lower())
             if (verifieduser.is_active):
                 return super().post(request, *args, **kwargs)
 
@@ -45,7 +49,6 @@ class AuthenticationView(LoginView):
 
 def register(request):
     if request.method == 'POST':
-        OTLink = make_password(request.POST['username'])
         context = {
             "form1": LoginForm,
             "login": 'Sign Up',
@@ -163,6 +166,7 @@ def reset_confirm(request, token):
             reform = ResetForm(request.POST)
             if reform.is_valid():
                 verifying_user.is_active = True
+                verifying_user.save()
                 reform.save(verifying_user)
                 return HttpResponseRedirect("/auth/")
 
