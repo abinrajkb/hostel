@@ -100,11 +100,9 @@ def resend_otp(request):
     }
     if request.method == "POST":
         form = OTP_resendform(request)
-        email = form["Email_Address"].value
+        email = form["Email_Address"].value()
         try:
-            print(email)
             user = VerifiedUser.objects.get(username=email)
-            print(user)
             if user.is_active:
                 return HttpResponseRedirect('/apply/')
             else:
