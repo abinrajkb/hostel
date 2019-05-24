@@ -18,6 +18,7 @@ class VerifiedUser(AbstractUser):
     def set_hash(self):
         hash_user = make_password(self.username)
         self.userhash = hash_user[34:]
+        self.save(commit=True)
         msg = settings.CURRENT_DOMAIN_NAME_MAIN+'auth/otp' + self.userhash
         send_mail("Login OTP", msg, "cusathostel@gmail.com", [self.username], fail_silently=False)
         return self.userhash
