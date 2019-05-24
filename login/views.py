@@ -35,7 +35,8 @@ class AuthenticationView(LoginView):
 
             context = {'error_heading': 'A Verification link has been sent to your email account',
                        'error_message': 'Please click on the link that has been sent to your email account to verify '
-                                        '   your email and continue login again'}
+                                        '   your email and continue login again',
+                       "resend":True}
         except VerifiedUser.DoesNotExist:
 
             context = {'error_heading': 'Seems like your are not registered yet',
@@ -86,8 +87,8 @@ def verification(request, token):
             'valid': "Successfully Verified . Login To Apply"
         }
     except VerifiedUser.DoesNotExist:
-        context = {'error_heading': 'Seems like your are not registered yet',
-                   'error_message': 'Please SignUp to continue'}
+        context = {'error_heading': 'Seems like your are verifying a old otp',
+                   'error_message': 'Please use the latest otp to continue'}
 
     return render(request, 'login/login.html', context=context)
 
@@ -110,7 +111,7 @@ def resend_otp(request):
                            'error_message': 'Please click on the link that has been'
                                             ' sent to your email account to verify'
                                             ' your email and continue login again',
-                           "resend": True}
+                           }
         except VerifiedUser.DoesNotExist:
             context = {'error_heading': 'Seems like your are not registered yet',
                        'error_message': 'Please SignUp to continue'}
