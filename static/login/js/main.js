@@ -1,9 +1,8 @@
 $(document).ready(function () {
-   $("input").on('click',function () {
-       this.parentNode.classList.remove("alert-validate")
-   })
+    $("input").on('click', function () {
+        this.parentNode.classList.remove("alert-validate")
+    })
 });
-
 
 
 document.getElementById("log_btn").onclick = function () {
@@ -44,7 +43,7 @@ function hashing(event) {
         if (regex.test(raw1)) {
             if (raw1 !== raw2) {
                 document.getElementById('id_password2').parentNode.classList.add("alert-validate");
-                document.getElementById('id_password2').parentNode.setAttribute('data-validate','Passwords must be same');
+                document.getElementById('id_password2').parentNode.setAttribute('data-validate', 'Passwords must be same');
                 event.preventDefault();
             } else {
                 document.getElementById('id_password1').value = sha512(raw1);
@@ -55,13 +54,13 @@ function hashing(event) {
         } else {
             document.getElementById('id_password1').parentNode.classList.add("alert-validate");
 
-            document.getElementById('id_password1').parentNode.setAttribute('data-validate','Password Must be atleast 8 characters long, must include atleast a character  and a digit or special characters');
+            document.getElementById('id_password1').parentNode.setAttribute('data-validate', 'Password Must be atleast 8 characters long, must include atleast a character  and a digit or special characters');
             event.preventDefault();
         }
     } else {
         document.getElementById('username').parentNode.classList.add("alert-validate");
 
-        document.getElementById('username').parentNode.setAttribute('data-validate','Input must be a valid email');
+        document.getElementById('username').parentNode.setAttribute('data-validate', 'Input must be a valid email');
         event.preventDefault();
     }
 }
@@ -74,3 +73,36 @@ function hashing1(event) {
 
 }
 
+
+function hashing2(event) {
+
+    var raw1 = document.getElementById('id_password1').value;
+    var raw2 = document.getElementById('id_password2').value;
+
+    var tag = document.getElementsByTagName('input');
+    for (i = 0; i < tag.length; i++) {
+
+        tag[i].parentNode.classList.remove("alert-validate");
+    }
+
+    document.getElementById('RegistrationForm').setAttribute("isvalid", "true");
+
+    var regex = /^(.{0,}(([a-zA-Z][^a-zA-Z])|([^a-zA-Z][a-zA-Z])).{4,})|(.{1,}(([a-zA-Z][^a-zA-Z])|([^a-zA-Z][a-zA-Z])).{3,})|(.{2,}(([a-zA-Z][^a-zA-Z])|([^a-zA-Z][a-zA-Z])).{2,})|(.{3,}(([a-zA-Z][^a-zA-Z])|([^a-zA-Z][a-zA-Z])).{1,})|(.{4,}(([a-zA-Z][^a-zA-Z])|([^a-zA-Z][a-zA-Z])).{0,})$/;
+    if (regex.test(raw1)) {
+        if (raw1 !== raw2) {
+            document.getElementById('id_password2').parentNode.classList.add("alert-validate");
+            document.getElementById('id_password2').parentNode.setAttribute('data-validate', 'Passwords must be same');
+            event.preventDefault();
+        } else {
+            document.getElementById('id_password1').value = sha512(raw1);
+            document.getElementById('id_password2').value = sha512(raw2);
+            document.getElementById('RegistrationForm').submit()
+        }
+
+    } else {
+        document.getElementById('id_password1').parentNode.classList.add("alert-validate");
+
+        document.getElementById('id_password1').parentNode.setAttribute('data-validate', 'Password Must be atleast 8 characters long, must include atleast a character  and a digit or special characters');
+        event.preventDefault();
+    }
+}

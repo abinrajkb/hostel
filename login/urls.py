@@ -9,5 +9,9 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('logout/', auth_views.LogoutView.as_view(), name='Logout'),
 path('resend/', views.resend_otp, name='resend'),
-    re_path(r'^otp(.*)/$', views.verification, name='path')
+path('reset_pass/', views.reset_password, name='reset'),
+
+    re_path(r'^otp(.*)/$', views.verification, name='path'),
+    re_path(r'^reset(.*)/$', views.reset_confirm, name='reset_confirm')
+
 ]

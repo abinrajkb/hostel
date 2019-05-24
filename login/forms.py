@@ -13,10 +13,7 @@ class CustomInputField(Field):
     template = 'login/CustomInputField.html'
 
 
-
-
 class UserForm(UserCreationForm):
-
     class Meta:
         model = VerifiedUser
         fields = ("username",)
@@ -37,11 +34,14 @@ class UserForm(UserCreationForm):
             self.fields[field].help_text = None
         self.helper.layout = Layout(
             Div(
-                CustomInputField('username', css_class='input100', data_validate="Username is required",type="email",id='username'),
-                CustomInputField('password1', css_class='input100', data_validate="Password must be 8 characters long",css_id='raw_password1'),
-                CustomInputField('password2', css_class='input100', data_validate="Password must be same as above",css_id='raw_password2'),
+                CustomInputField('username', css_class='input100', data_validate="Username is required", type="email",
+                                 id='username'),
+                CustomInputField('password1', css_class='input100', data_validate="Password must be 8 characters long",
+                                 css_id='raw_password1'),
+                CustomInputField('password2', css_class='input100', data_validate="Password must be same as above",
+                                 css_id='raw_password2'),
                 Div(
-                    Submit('Submit', 'Submit', css_class="login100-form-btn",css_id='login_submit',),
+                    Submit('Submit', 'Submit', css_class="login100-form-btn", css_id='login_submit', ),
                     css_class="container-login100-form-btn"
                 )
 
@@ -56,6 +56,45 @@ class UserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class ResetForm(UserCreationForm):
+    class Meta:
+        model = VerifiedUser
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'login100-form validate-form'
+        self.helper.form_id = "RegistrationForm"
+        self.fields["username"].label = "Email Address"
+        self.fields["username"].widget.attrs["type"] = "email"
+
+        self.helper.attrs['onSubmit'] = "hashing2(event)"
+        fields = ["password1", "password2"]
+        for field in fields:
+            self.fields[field].help_text = None
+        self.helper.layout = Layout(
+            Div(
+                CustomInputField('password1', css_class='input100', data_validate="Password must be 8 characters long",
+                                 css_id='raw_password1'),
+                CustomInputField('password2', css_class='input100', data_validate="Password must be same as above",
+                                 css_id='raw_password2'),
+                Div(
+                    Submit('Submit', 'Submit', css_class="login100-form-btn", css_id='login_submit', ),
+                    css_class="container-login100-form-btn"
+                )
+
+            )
+        )
+
+    def save(self, user, commit=True):
+        user.set_password(self.cleaned_data["password1"])
+        user.set_hash()
+        if commit:
+            user.save()
+        return user
+
 
 class OTPForm(Form):
     RegisterNo = CharField()
@@ -90,7 +129,6 @@ class OTPForm(Form):
 
 class LoginForm(AuthenticationForm):
 
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -107,7 +145,7 @@ class LoginForm(AuthenticationForm):
                 CustomInputField('username', css_class='input100', data_validate="Username is required"),
                 CustomInputField('password', css_class='input100', data_validate="Password is required"),
                 Div(
-                    Submit('Submit', 'Submit', css_class="login100-form-btn",),
+                    Submit('Submit', 'Submit', css_class="login100-form-btn", ),
                     css_class="container-login100-form-btn"
                 )
             )
@@ -127,7 +165,7 @@ class OTP_resendform(Form):
 
             CustomInputField('Email_Address', css_class='input100', data_validate="Register Number is required"),
             Div(
-                Submit('submit', 'submit', css_class="login100-form-btn", css_id="submit_btn" ),
+                Submit('submit', 'submit', css_class="login100-form-btn", css_id="submit_btn"),
                 css_class="container-login100-form-btn",
 
             )

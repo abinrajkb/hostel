@@ -5,17 +5,16 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-
 from .models import VerifiedUser
-from .forms import UserForm, OTP_resendform, LoginForm
+from .forms import UserForm, OTP_resendform, LoginForm,ResetForm
 
 
 class AuthenticationView(LoginView):
     template_name = 'login/login.html'
     form_class = LoginForm
     extra_context = {
-        'form1': UserForm
-
+        'form1': UserForm,
+        'reset':True
     }
     redirect_authenticated_user = True
 
@@ -100,7 +99,7 @@ def resend_otp(request):
     }
     if request.method == "POST":
         form = OTP_resendform(request.POST)
-        email = form["Email_Address"].value()
+        email = form["Email_Address"].value().lower()
         try:
             user = VerifiedUser.objects.get(username=email)
             if user.is_active:
@@ -115,4 +114,57 @@ def resend_otp(request):
         except VerifiedUser.DoesNotExist:
             context = {'error_heading': 'Seems like your are not registered yet',
                        'error_message': 'Please SignUp to continue'}
+    return render(request, 'login/login.html', context=context)
+
+
+def reset_password(request):
+    context = {
+        "form": OTP_resendform,
+        "login": "Resend Password"
+    }
+    if request.method == "POST":
+        form = OTP_resendform(request.POST)
+        email = form["Email_Address"].value().lower()
+        try:
+            user = VerifiedUser.objects.get(username=email)
+            user.reset_hash()
+            context = {'error_heading': 'A Verification link has been sent to your email account',
+                       'error_message': 'Please click on the link that has been'
+                                        ' sent to your email account to verify'
+                                        ' your email and Reset the passwotrd',
+                       }
+        except VerifiedUser.DoesNotExist:
+            context = {'error_heading': 'Seems like your are not registered yet',
+                       'error_message': 'Please SignUp to continue'}
+    return render(request, 'login/login.html', context=context)
+
+def reset_confirm(request, token):
+    print(token)
+    context = {}
+    if request.method=="GET":
+        try:
+            verifying_user = VerifiedUser.objects.get(userhash=token)
+            reform = ResetForm()
+            reform.form_action = "/auth/reset"+token
+            context = {
+                'form': reform,
+                'valid': "Successfully Verified . reset password to continue"
+            }
+
+        except VerifiedUser.DoesNotExist:
+            context = {'error_heading': 'Seems like your are verifying a old otp',
+                       'error_message': 'Please use the latest otp to continue'}
+
+    else:
+        try:
+            verifying_user = VerifiedUser.objects.get(userhash=token)
+            reform = ResetForm(request.POST)
+            if reform.is_valid():
+                reform.save(verifying_user)
+                return HttpResponseRedirect("/auth/")
+
+        except VerifiedUser.DoesNotExist:
+            context = {'error_heading': 'Seems like your are verifying a old otp',
+                       'error_message': 'Please use the latest otp to continue'}
+
     return render(request, 'login/login.html', context=context)

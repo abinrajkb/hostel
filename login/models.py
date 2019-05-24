@@ -23,6 +23,13 @@ class VerifiedUser(AbstractUser):
         send_mail("Login OTP", msg, "cusathostel@gmail.com", [self.username], fail_silently=True)
         return self.userhash
 
+    def reset_hash(self):
+        hash_user = make_password(self.username)
+        self.userhash = hash_user[34:]
+        self.save()
+        msg = settings.CURRENT_DOMAIN_NAME_MAIN+'auth/reset' + self.userhash
+        send_mail("Login OTP", msg, "cusathostel@gmail.com", [self.username], fail_silently=True)
+        return self.userhash
 
 class ApplicationSettings(models.Model):
     active_applications = models.BooleanField(default=False)
