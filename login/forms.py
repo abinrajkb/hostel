@@ -113,3 +113,21 @@ class LoginForm(AuthenticationForm):
         )
 
 
+class OTP_resendform(Form):
+    Email_Address = CharField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'login100-form validate-form'
+        self.helper.form_action = "/auth/resend/"
+        self.helper.attrs['onSubmit'] = ""
+        self.helper.layout = Layout(
+
+            CustomInputField('Email_Address', css_class='input100', data_validate="Register Number is required"),
+            Div(
+                Submit('submit', 'submit', css_class="login100-form-btn", css_id="submit_btn" ),
+                css_class="container-login100-form-btn",
+
+            )
+        )

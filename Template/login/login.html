@@ -26,11 +26,12 @@
                     <div class="tab-group">
                         <button id="log_btn">{{ login|default:"Login" }}</button>
                         {% if form1 %}
-                            <button id="reg_btn" style="color: rgb(143, 142, 141);">{{ signup|default:"Sign Up" }}</button>
+                            <button id="reg_btn"
+                                    style="color: rgb(143, 142, 141);">{{ signup|default:"Sign Up" }}</button>
                         {% endif %}
                     </div>
                     <div id="Login" class="tabcontent">
-			<p class = "text-sucess text-center" style="color: #28a745 !important;" >{{valid}}</p>
+                        <p class="text-sucess text-center" style="color: #28a745 !important;">{{ valid }}</p>
                         {% load crispy_forms_tags %}
                         {% crispy form %}
                     </div>
@@ -50,9 +51,9 @@
                         <p class="login100-error-msg m-b-26">
                             {{ error_message }}</p>
                         <a class="login100-form-btn m-t-10" href="{% url 'login:index' %}">Register</a>
-			{% if resend %}
-			<a class="login100-form-btn m-t-10" href="{% url 'login:resend' %}">Resend OTP</a>
-			{% endif %}
+                        {% if resend %}
+                            <a class="login100-form-btn m-t-10" href="{% url 'login:resend' %}">Resend OTP</a>
+                        {% endif %}
                     </div>
 
                 {% endif %}

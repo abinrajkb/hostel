@@ -15,6 +15,6 @@ def index(request):
     obj = Applications.objects.all()
     return render(request, 'Department/index.html', {'models': obj})
 
-
-def process_data(request):
-    pass
+#
+# def process_data(request):
+#     pass

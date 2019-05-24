@@ -11,7 +11,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 
 from .models import VerifiedUser
-from .forms import UserForm, OTPForm, LoginForm
+from .forms import UserForm, OTP_resendform, LoginForm
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -29,6 +29,7 @@ class AuthenticationView(LoginView):
         if not self.request.user.applications.Pincode:
             return "/apply/"
         return "/apply/view/"
+
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
     def post(self, request, *args, **kwargs):
@@ -66,7 +67,8 @@ def register(request):
             else:
                 context = {'error_heading': 'A Verification link has been sent to your email account',
                            'error_message': 'Please click on the link that has been sent to your email account to verify '
-                                            '   your email and continue login again'}
+                                            '   your email and continue login again',
+                           "resend": True}
                 return render(request, 'login/login.html', context=context)
 
         else:
@@ -86,7 +88,32 @@ def verification(request, token):
     context = {
         'form1': UserForm,
         'form': LoginForm,
-        'valid':"Successfully Verified . Login To Apply"
+        'valid': "Successfully Verified . Login To Apply"
     }
-    return  render(request, 'login/login.html', context=context)
+    return render(request, 'login/login.html', context=context)
 
+
+def resend_otp(request):
+    context = {
+        "form": OTP_resendform,
+        "login": "Resend OTP"
+    }
+    if request.method == "POST":
+        form = OTP_resendform(request)
+        email = form["Email_Address"].value
+        try:
+
+            user = VerifiedUser.objects.get(username=email)
+            if user.is_active:
+                return HttpResponseRedirect('/apply/')
+            else:
+                user.set_hash()
+                context = {'error_heading': 'A Verification link has been sent to your email account',
+                           'error_message': 'Please click on the link that has been'
+                                            ' sent to your email account to verify'
+                                            ' your email and continue login again',
+                           "resend": True}
+        except VerifiedUser.DoesNotExist:
+            context = {'error_heading': 'Seems like your are not registered yet',
+                       'error_message': 'Please SignUp to continue'}
+    return render(request, 'login/login.html', context=context)
