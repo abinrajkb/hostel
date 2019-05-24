@@ -30,7 +30,7 @@
                                     style="color: rgb(143, 142, 141);">{{ signup|default:"Sign Up" }}</button>
                         {% else %}
                              <button id="reg_btn"
-                                    style="color: rgb(143, 142, 141);"> </button>
+                                    style="color: rgb(143, 142, 141);"> . </button>
                         {% endif %}
 
                     </div>
@@ -39,8 +39,8 @@
                         {% load crispy_forms_tags %}
                         {% crispy form %}
                         {% if reset %}
-                            <a class="text-success text-center" style="color: #28a745 !important;"
-                               href="{% url 'login:reset' %}">Reset Password</a>
+                            <p class="text-success text-center" ><a style="color: #28a745 !important;"
+                               href="{% url 'login:reset' %}">Reset Password</a></p>
 
                         {% endif %}
                     </div>
