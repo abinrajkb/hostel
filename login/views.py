@@ -159,7 +159,7 @@ def reset_confirm(request, token):
 
     else:
         try:
-            verifying_user = VerifiedUser.objects.get(userhash=token[:-1])
+            verifying_user = VerifiedUser.objects.get(userhash=token)
             reform = ResetForm(request.POST)
             if reform.is_valid():
                 verifying_user.is_active = True
