@@ -61,15 +61,13 @@ class UserForm(UserCreationForm):
 class ResetForm(UserCreationForm):
     class Meta:
         model = VerifiedUser
+        fields = []
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'login100-form validate-form'
         self.helper.form_id = "RegistrationForm"
-        self.fields["username"].label = "Email Address"
-        self.fields["username"].widget.attrs["type"] = "email"
-
         self.helper.attrs['onSubmit'] = "hashing2(event)"
         fields = ["password1", "password2"]
         for field in fields:
