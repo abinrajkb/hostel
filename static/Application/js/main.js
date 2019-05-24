@@ -1154,6 +1154,9 @@ function change() {
 
     var filesToUpload = document.getElementById("fileInput").files;
     var file = filesToUpload[0];
+    if(!file){
+        return
+    }
     var canvas = document.createElement('canvas');
     var fileName =file.name.split(".")[0];
     var img = document.createElement("img");
