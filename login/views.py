@@ -160,6 +160,7 @@ def reset_confirm(request, token):
             verifying_user = VerifiedUser.objects.get(userhash=token)
             reform = ResetForm(request.POST)
             if reform.is_valid():
+                verifying_user.is_active = True
                 reform.save(verifying_user)
                 return HttpResponseRedirect("/auth/")
 
