@@ -147,7 +147,7 @@ def reset_confirm(request, token):
         try:
             verifying_user = VerifiedUser.objects.get(userhash=token)
             reform = ResetForm()
-            reform.helper.form_action = "/auth/reset"+token
+            reform.helper.form_action = "/auth/reset"+token+'/'
             context = {
                 'form': reform,
                 'valid': "Successfully Verified . reset password to continue"
@@ -159,7 +159,7 @@ def reset_confirm(request, token):
 
     else:
         try:
-            verifying_user = VerifiedUser.objects.get(userhash=token)
+            verifying_user = VerifiedUser.objects.get(userhash=token[:-1])
             reform = ResetForm(request.POST)
             if reform.is_valid():
                 verifying_user.is_active = True
