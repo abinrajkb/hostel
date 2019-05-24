@@ -119,7 +119,7 @@ def resend_otp(request):
 
 def reset_password(request):
     resend_form = OTP_resendform()
-    resend_form.helper.form_action = "/auth/reset_pass"
+    resend_form.helper.form_action = "/auth/reset_pass/"
     context = {
         "form": resend_form,
         "login": "Resend Password"
