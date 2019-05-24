@@ -28,14 +28,19 @@
                         {% if form1 %}
                             <button id="reg_btn"
                                     style="color: rgb(143, 142, 141);">{{ signup|default:"Sign Up" }}</button>
+                        {% else %}
+                             <button id="reg_btn"
+                                    style="color: rgb(143, 142, 141);"> </button>
                         {% endif %}
+
                     </div>
                     <div id="Login" class="tabcontent">
                         <p class="text-sucess text-center" style="color: #28a745 !important;">{{ valid }}</p>
                         {% load crispy_forms_tags %}
                         {% crispy form %}
                         {% if reset %}
-                            <a class="login100-form-btn m-t-10" href="{% url 'login:reset' %}">Reset Password</a>
+                            <a class="text-success text-center" style="color: #28a745 !important;"
+                               href="{% url 'login:reset' %}">Reset Password</a>
 
                         {% endif %}
                     </div>
