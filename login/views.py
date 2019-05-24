@@ -119,7 +119,7 @@ def resend_otp(request):
 
 def reset_password(request):
     resend_form = OTP_resendform()
-    resend_form.form_action = "/auth/reset_pass"
+    resend_form.helper.form_action = "/auth/reset_pass"
     context = {
         "form": resend_form,
         "login": "Resend Password"
@@ -147,7 +147,7 @@ def reset_confirm(request, token):
         try:
             verifying_user = VerifiedUser.objects.get(userhash=token)
             reform = ResetForm()
-            reform.form_action = "/auth/reset"+token
+            reform.helper.form_action = "/auth/reset"+token
             context = {
                 'form': reform,
                 'valid': "Successfully Verified . reset password to continue"
