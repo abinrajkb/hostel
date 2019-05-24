@@ -99,7 +99,7 @@ def resend_otp(request):
         "login": "Resend OTP"
     }
     if request.method == "POST":
-        form = OTP_resendform(request)
+        form = OTP_resendform(request.POST)
         email = form["Email_Address"].value()
         try:
             user = VerifiedUser.objects.get(username=email)
