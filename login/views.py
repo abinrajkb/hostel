@@ -1,10 +1,6 @@
-import smtplib
-import socket
-
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
@@ -12,8 +8,6 @@ from django.views.decorators.csrf import csrf_protect
 
 from .models import VerifiedUser
 from .forms import UserForm, OTP_resendform, LoginForm
-from django.core.mail import send_mail
-from django.conf import settings
 
 
 class AuthenticationView(LoginView):
@@ -82,14 +76,19 @@ def register(request):
 
 def verification(request, token):
     print(token)
-    verifying_user = VerifiedUser.objects.get(userhash=token)
-    verifying_user.is_active = True
-    verifying_user.save()
-    context = {
-        'form1': UserForm,
-        'form': LoginForm,
-        'valid': "Successfully Verified . Login To Apply"
-    }
+    try:
+        verifying_user = VerifiedUser.objects.get(userhash=token)
+        verifying_user.is_active = True
+        verifying_user.save()
+        context = {
+            'form1': UserForm,
+            'form': LoginForm,
+            'valid': "Successfully Verified . Login To Apply"
+        }
+    except VerifiedUser.DoesNotExist:
+        context = {'error_heading': 'Seems like your are not registered yet',
+                   'error_message': 'Please SignUp to continue'}
+
     return render(request, 'login/login.html', context=context)
 
 
