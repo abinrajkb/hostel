@@ -86,7 +86,7 @@ def verification(request, token):
     context = {
         'form1': UserForm,
         'form': LoginForm,
-        'invalid':"Successfully Verified . Login To Apply"
+        'valid':"Successfully Verified . Login To Apply"
     }
     return  render(request, 'login/login.html', context=context)
 
