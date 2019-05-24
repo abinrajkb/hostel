@@ -488,6 +488,7 @@ class Applications(models.Model):
     attendance = models.BooleanField(default=1, blank=True, null=True)
     year_back = models.BooleanField(default=0, blank=True, null=True)
     admitted = models.BooleanField(default=0, blank=True, null=True)
+    verified_department = models.BooleanField(default=0, blank=True, null=True)
     Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None, blank=True, null=True)
 
 

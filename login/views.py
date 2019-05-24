@@ -26,8 +26,9 @@ class AuthenticationView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return "/apply/"
-
+        if not self.request.user.applications.Pincode:
+            return "/apply/"
+        return "/apply/view/"
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
     def post(self, request, *args, **kwargs):
@@ -61,7 +62,7 @@ def register(request):
             user = user.save()
 
             if user.is_active:
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect('/apply/')
             else:
                 context = {'error_heading': 'A Verification link has been sent to your email account',
                            'error_message': 'Please click on the link that has been sent to your email account to verify '
@@ -82,4 +83,10 @@ def verification(request, token):
     verifying_user = VerifiedUser.objects.get(userhash=token)
     verifying_user.is_active = True
     verifying_user.save()
-    return HttpResponseRedirect('/auth/')
+    context = {
+        'form1': UserForm,
+        'form': LoginForm,
+        'invalid':"Successfully Verified . Login To Apply"
+    }
+    return  render(request, 'login/login.html', context=context)
+
