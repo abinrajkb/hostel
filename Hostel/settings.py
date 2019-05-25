@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c-_w@(j%+kwy-ty(cdmm6y=gempjnv9(^&d$jko^p3zd3c4pwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/Hostel/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
 # STATICFILES_DIRS = [
@@ -149,5 +149,5 @@ LOGIN_REDIRECT_URL = '/apply/'
 
 CURRENT_DOMAIN_NAME_MAIN = "https://hostels.cusat.ac.in/"
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/Hostel/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
