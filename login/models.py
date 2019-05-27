@@ -1,3 +1,5 @@
+from email.message import EmailMessage
+
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -6,23 +8,28 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-import smtplib
+import smtplib,ssl
 from random import choice
 
 # creates SMTP session
 def send_email(message,reciver):
-    emails = ["cusathostel@gmail.com","cusathostels@gmail.com","cusatuniversityhostel@gmail.com","cusatuniversityhostels@gmail.com"]
-    s = smtplib.SMTP('smtp.gmail.com', 587)
+    emails = ["cusathostel@gmail.com","cusatuniversityhostel@gmail.com","cusatuniversityhostels@gmail.com"]
+    # context = ssl.create_default_context()
+    s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     email = choice(emails)
     # start TLS for security
-    s.starttls()
+    # s.starttls()
     # Authentication
     s.login(email, "hostelmanagement@cusat")
-
+    msg = EmailMessage()
+    msg['Subject'] = 'Login OTP'
+    msg['From'] = email
+    msg['To'] = reciver
+    msg.set_content(message)
     # message to be sent
-
+    print(message)
     # sending the mail
-    s.sendmail(email,reciver, message)
+    s.send_message(msg)
 
     # terminating the session
     s.quit()
