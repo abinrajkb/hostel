@@ -58,8 +58,8 @@ class ApplicationForm(ModelForm):
         self.helper.form_id = 'application_form'
         self.helper.form_action = '/apply/submitted/'
         self.helper.layout = Layout(
-            CustomTextInput('Registration_No', ),
-            CustomTextInput('Name', ),
+            CustomTextInput('Registration_No', label=' Exam Registration No'),
+            CustomTextInput('Name', label='Name as in University records'),
             CustomTextInput('Address_For_Communication', template='Application/CustomFields//CustomTextArea.html'),
             CustomTextInput('Permanent_Address', template='Application/CustomFields/CustomTextArea.html'),
             Div(Div(
@@ -71,8 +71,8 @@ class ApplicationForm(ModelForm):
                 css_class='form-row'),
             CustomTextInput('District', template='Application/CustomFields/CustomSelect.html', id='district'),
             CustomTextInput('Mobile_Number', css_id='mobile'),
-            CustomTextInput('Name_of_Guardian'),
-            CustomTextInput('PhoneNumber_of_Guardian'),
+            CustomTextInput('Name_of_Guardian', label='Name of Parent/Guardian'),
+            CustomTextInput('PhoneNumber_of_Guardian', label='PhoneNumber of Parent/Guardian'),
             CustomTextInput('Year_of_Study', template='Application/CustomFields/CustomSelect.html', id='Year',
                             css_class='validating'),
             Div(
@@ -110,14 +110,14 @@ class ApplicationForm(ModelForm):
             ),
             Div(
                 Div(CustomTextInput('CAT_Rank', css_class='wrap-input100 validate-input m-b-18 validating',
-                                    css_id='CAT_rank'),
+                                    css_id='CAT_rank', label='CAT RANK (optional)'),
                     css_class="col-sm-3",
                     ),
                 Div(css_class='col-sm-5'),
                 CustomTextInput('Prime_Ministers_program', template='Application/CustomFields/CustomBool.html'),
                 css_class="form-row w-100"),
 
-            CustomTextInput('Photo_upload', type_id='file', css_id="fileInput"),
+            CustomTextInput('Photo_upload', type_id='file', css_id="fileInput", label='Profile Photo (passport size)'),
             Div(template="Application/CustomFields/CustomDeclaration.html"),
             Div(
                 Submit('Submit', 'Submit', css_class="login100-form-btn w-25", onclick="new_function(event)"),
