@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="included the navbar in the login page.">
       <change beforePath="$PROJECT_DIR$/Hostel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Application/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Application/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Application/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Application/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Template/Homepage/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Homepage/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Application/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Application/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Homepage/css/homepage_util.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Homepage/css/homepage_util.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/login/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/login/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,10 +53,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
+            <state relative-caret-position="382">
               <caret line="128" selection-start-line="128" selection-end-line="131" selection-end-column="1" />
             </state>
           </provider>
@@ -73,17 +65,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="412">
+              <caret line="50" column="60" lean-forward="true" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Template/Homepage/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
+            <state relative-caret-position="255">
+              <caret line="42" column="38" lean-forward="true" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Homepage/css/homepage_util.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="126" column="33" lean-forward="true" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
+            <state relative-caret-position="167">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -200,12 +198,12 @@
         <option value="$PROJECT_DIR$/static/login/js/main.js" />
         <option value="$PROJECT_DIR$/Template/login/login.html" />
         <option value="$PROJECT_DIR$/static/login/css/main.css" />
-        <option value="$PROJECT_DIR$/Template/Homepage/homepage.html" />
         <option value="$PROJECT_DIR$/static/Homepage/css/homepage_util.css" />
         <option value="$PROJECT_DIR$/Template/Application/index.html" />
         <option value="$PROJECT_DIR$/static/Application/css/main.css" />
         <option value="$PROJECT_DIR$/Template/Application/view.html" />
         <option value="$PROJECT_DIR$/Hostel/settings.py" />
+        <option value="$PROJECT_DIR$/Template/Homepage/homepage.html" />
       </list>
     </option>
   </component>
@@ -401,7 +399,7 @@
       <workItem from="1557735454943" duration="2097000" />
       <workItem from="1557747958632" duration="61000" />
       <workItem from="1557748048125" duration="13000" />
-      <workItem from="1558460792868" duration="100789000" />
+      <workItem from="1558460792868" duration="102500000" />
     </task>
     <task id="LOCAL-00001" summary="added ico">
       <created>1558504175793</created>
@@ -585,17 +583,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558949461798</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="included the navbar in the login page.">
+      <created>1558954197851</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1558954197851</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102960000" />
+    <option name="totallyTimeSpent" value="104671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17678301" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17678301" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" weight="0.32954547" />
@@ -610,7 +615,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32954547" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007587" side_tool="true" weight="0.32954547" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" weight="0.84253246" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" visible="true" weight="0.097402595" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -660,7 +665,8 @@
     <MESSAGE value="&#10;final final final final final" />
     <MESSAGE value="Integrated round Robin mail system." />
     <MESSAGE value="Updated Application labels." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Application labels." />
+    <MESSAGE value="included the navbar in the login page." />
+    <option name="LAST_COMMIT_MESSAGE" value="included the navbar in the login page." />
   </component>
   <component name="editorHistoryManager">
     <entry file="das://4380bccf-918f-429e-8e99-a2f0896c6e05/schema/hostel_management/table/login_applicationsettings">
@@ -951,25 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/Homepage/css/homepage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-743" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Homepage/homepage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template/Application/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -991,13 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Homepage/css/homepage_util.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="126" column="33" lean-forward="true" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/login/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -1005,10 +985,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/Homepage/css/homepage_util.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Homepage/css/homepage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-743" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="50" column="60" lean-forward="true" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
+        <state relative-caret-position="382">
           <caret line="128" selection-start-line="128" selection-end-line="131" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Homepage/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="42" column="38" lean-forward="true" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
