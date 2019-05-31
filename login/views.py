@@ -42,7 +42,7 @@ class AuthenticationView(LoginView):
                        "resend":True}
         except VerifiedUser.DoesNotExist:
 
-            context = {'error_heading': 'Seems like your are not registered yet',
+            context = {'error_heading': 'Seems like you are not registered yet',
                        'error_message': 'Please SignUp to continue'}
         return render(request, 'login/login.html', context=context)
 
@@ -115,7 +115,7 @@ def resend_otp(request):
                                             ' your email and continue login again',
                            }
         except VerifiedUser.DoesNotExist:
-            context = {'error_heading': 'Seems like your are not registered yet',
+            context = {'error_heading': 'Seems like you are not registered yet',
                        'error_message': 'Please SignUp to continue'}
     return render(request, 'login/login.html', context=context)
 
@@ -139,7 +139,7 @@ def reset_password(request):
                                         ' your email and Reset the passwotrd',
                        }
         except VerifiedUser.DoesNotExist:
-            context = {'error_heading': 'Seems like your are not registered yet',
+            context = {'error_heading': 'Seems like you are not registered yet',
                        'error_message': 'Please SignUp to continue'}
     return render(request, 'login/login.html', context=context)
 
@@ -157,7 +157,7 @@ def reset_confirm(request, token):
             }
 
         except VerifiedUser.DoesNotExist:
-            context = {'error_heading': 'Seems like your are verifying a old otp',
+            context = {'error_heading': 'Seems like you are verifying a old otp',
                        'error_message': 'Please use the latest otp to continue'}
 
     else:
@@ -171,7 +171,7 @@ def reset_confirm(request, token):
                 return HttpResponseRedirect("/auth/")
 
         except VerifiedUser.DoesNotExist:
-            context = {'error_heading': 'Seems like your are verifying a old otp',
+            context = {'error_heading': 'Seems like you are verifying a old otp',
                        'error_message': 'Please use the latest otp to continue'}
 
     return render(request, 'login/login.html', context=context)
