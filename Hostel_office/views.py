@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from Application.models import Applications
+from login.forms import UserForm
+from login.models import VerifiedUser
 
 
 def test(user):
@@ -113,6 +116,53 @@ def add_dept(request):
     }
     return render(request, 'Hostel_office/add_data.html', context)
 
+
 def create(request):
-    print('1')
-    HttpResponse('hiiii')
+    departments = [
+        "Choose department",
+        "DDU Kaushal Kendras (DDUKK)",
+        "Department of Applied Chemistry",
+        "Department of Applied Economics",
+        "Department of Atmospheric Sciences",
+        "Department of Biotechnology",
+        "Department of Chemical Oceanography",
+        "Department of Computer Applications",
+        "Department of Computer Science",
+        "Department of Electronics",
+        "Department of Hindi",
+        "Department of Instrumentation",
+        "Department of Marine Biology, Microbiology and Biochemistry",
+        "Department of Marine Geology and Geophysics",
+        "Department of Mathematics",
+        "Department of Physical Oceanography",
+        "Department of Physics",
+        "Department of Polymer Science and Rubber Technology",
+        "Department of Ship Technology",
+        "Department of Statistics",
+        "Inter University Centre for IPR Studies (IUCIPRS)",
+        "International School of Photonics",
+        "National Centre for Aquatic Animal Health (NCAAH)",
+        "School of Engineering",
+        "School of Environmental Studies",
+        "School of Industrial Fisheries",
+        "School of Legal Studies",
+        "School of Management Studies"]
+    context = {
+        "departments": departments,
+        "models": Applications.objects.all(),
+    }
+    if request.method == 'POST':
+        dupli_user = VerifiedUser.objects.filter(username=request.POST['username'])
+        print(dupli_user)
+        if (not dupli_user):
+            Dept_user = VerifiedUser.objects.create_user(username=request.POST['username'],
+                                                         password=request.POST['password1'])
+            Dept_user.is_active = True
+            Dept_user.Department_portal = request.POST['dept']
+            Dept_user.Accessible = request.POST['course']
+            Dept_user.save()
+            return HttpResponseRedirect('/office/add_dept/')
+        else:
+            return HttpResponse('Duplicate User Found,Try other Name')
+    else:
+        return HttpResponseRedirect('/office/add_dept/')

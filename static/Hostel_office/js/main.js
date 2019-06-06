@@ -153,7 +153,7 @@ function load_courses() {
     for (i in courses[dep]) {
         var divs = `<div class="row d-flex text-left">
                         <div class="col col-md-1 ">
-                            <input type="checkbox" value="` + courses[dep][i] + `">
+                            <input class="checkbox" type="checkbox" value="` + courses[dep][i] + `">
                         </div>
                         <div class="col col-md-11">
                             ` + courses[dep][i] + `
@@ -162,78 +162,44 @@ function load_courses() {
 
         course.innerHTML += (divs);
     }
-    // options = document.createElement("option");
-    // options.text = "other";
-    // options.value = "other";
-    //
-    // course.appendChild(options);
-    // if (dep === "other") {
-    //     for (i in courses[dep]) {
-    //         options = document.createElement("option");
-    //         options.text = courses[dep][i];
-    //         options.value = courses[dep][i];
-    //         course.add(options);
-    //     }
-    //     var elem = document.getElementById('dept_oth');
-    //     elem.style.display = 'block';
-    //     course_option()
-    // }
-
+    $(".checkbox").on("change",function () {
+        if(this.checked==true){
+            console.log(this)
+            $("#courses").val(this.value+","+$("#courses").val())
+        }
+        else{
+            $("#courses").val($("#courses").val().replace( this.value+",",""))
+        }
+    });
 
 }
-
 function course_option() {
     var course = document.getElementById("course").value;
     if (course === "other") {
         var elem = document.getElementById('course_oth');
         elem.style.display = 'block'
+
     }
 
 }
-
 function hashing() {
     console.log('hiii');
     var raw1 = document.getElementById('password1').value;
     var raw2 = document.getElementById('password2').value;
-    console.log(raw1);
-    console.log(raw2);
-    // var username = document.getElementById('username').value;
-    //
-    // var tag = document.getElementsByTagName('input');
-    // for (i = 0; i < tag.length; i++) {
-    //
-    //     tag[i].parentNode.classList.remove("alert-validate");
-    // }
-    //
-    // document.getElementById('RegistrationForm').setAttribute("isvalid", "true");
-    // if (email_regex.test(username)) {
-    //     if (regex.test(raw1)) {
-    //         if (raw1 !== raw2) {
-    //             document.getElementById('id_password2').parentNode.classList.add("alert-validate");
-    //             document.getElementById('id_password2').parentNode.setAttribute('data-validate', 'Passwords must be same');
-    //             event.preventDefault();
-    //         } else {
-    //             document.getElementById('id_password1').value = sha512(raw1);
-    //             document.getElementById('id_password2').value = sha512(raw2);
-    //             document.getElementById('RegistrationForm').submit()
-    //         }
-    //
-    //     } else {
-    //         document.getElementById('id_password1').parentNode.classList.add("alert-validate");
-    //
-    //         document.getElementById('id_password1').parentNode.setAttribute('data-validate', 'Password Must be atleast 8 characters long, must include atleast a character  and a digit or special characters');
-    //         event.preventDefault();
-    //     }
-    // } else {
-    //     document.getElementById('username').parentNode.classList.add("alert-validate");
-    //
-    //     document.getElementById('username').parentNode.setAttribute('data-validate', 'Input must be a valid email');
-    //     event.preventDefault();
-    // }
+    if (raw1 == raw2) {
+        document.getElementById('password1').value = sha512(raw1);
+        document.getElementById('password2').value = sha512(raw2);
+
+        document.getElementById('create_dept').submit();
+    } else {
+        event.preventDefault();
+        console.log('hiii');
+        document.getElementById('error').style.display='block';
+
+
+    }
+
+
 }
 
-
-
-
-
-load_dept_office()
+load_dept_office();
