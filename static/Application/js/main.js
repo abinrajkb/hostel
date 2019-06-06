@@ -1132,6 +1132,7 @@ function load_course() {
     var i;
     course.innerHTML = "";
     var d = document.getElementById("dept");
+    console.log(d)
     var dep = d.options[d.selectedIndex].value;
     for (i in courses[dep]) {
         var options = document.createElement("option");

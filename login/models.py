@@ -8,12 +8,13 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-import smtplib,ssl
+import smtplib, ssl
 from random import choice
 
+
 # creates SMTP session
-def send_email(message,reciver):
-    emails = ["cusathostel@gmail.com","cusatuniversityhostel@gmail.com","cusatuniversityhostels@gmail.com"]
+def send_email(message, reciver):
+    emails = ["cusathostel@gmail.com", "cusatuniversityhostel@gmail.com", "cusatuniversityhostels@gmail.com"]
     # context = ssl.create_default_context()
     s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     email = choice(emails)
@@ -34,9 +35,12 @@ def send_email(message,reciver):
     # terminating the session
     s.quit()
 
+
 class VerifiedUser(AbstractUser):
     userhash = models.TextField(max_length=512, null=True, blank=True)
     is_active = models.BooleanField(default=False)
+    Department_portal = models.TextField(max_length=255, blank=True, default='student')
+    Accessible = models.TextField(max_length=512, null=True, blank=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -46,17 +50,18 @@ class VerifiedUser(AbstractUser):
         hash_user = make_password(self.username)
         self.userhash = hash_user[34:]
         self.save()
-        msg = "your  verification otp    " +settings.CURRENT_DOMAIN_NAME_MAIN+'auth/otp' + self.userhash
-        send_email( msg,self.username)
+        msg = "your  verification otp    " + settings.CURRENT_DOMAIN_NAME_MAIN + 'auth/otp' + self.userhash
+        send_email(msg, self.username)
         return self.userhash
 
     def reset_hash(self):
         hash_user = make_password(self.username)
         self.userhash = hash_user[34:]
         self.save()
-        msg = "your password reset otp    " + settings.CURRENT_DOMAIN_NAME_MAIN+'auth/reset' + self.userhash
-        send_email( msg,self.username)
+        msg = "your password reset otp    " + settings.CURRENT_DOMAIN_NAME_MAIN + 'auth/reset' + self.userhash
+        send_email(msg, self.username)
         return self.userhash
+
 
 class ApplicationSettings(models.Model):
     active_applications = models.BooleanField(default=False)

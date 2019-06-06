@@ -490,6 +490,7 @@ class Applications(models.Model):
     admitted = models.BooleanField(default=0, blank=True, null=True)
     verified_department = models.BooleanField(default=0, blank=True, null=True)
     Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None, blank=True, null=True)
+    Room_No = CharField(max_length=255, default=0)
 
 
 @receiver(post_save, sender=login_models.VerifiedUser)

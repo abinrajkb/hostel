@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Department/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
 {% endblock %}
 
 {% block navbar %}
@@ -20,92 +20,74 @@
             </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a href="{% url 'login:Logout' %}" class="bez nav-link">Logout</a>
+                    <a href="{% url 'login:Logout' %}" class="bez nav-link active1">Logout</a>
 
                 </li>
             </ul>
         </div>
     </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 25px">
-                        Choose Course
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">B-Tech</a>
-                        <a class="dropdown-item" href="#">M-Tech</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
 {% endblock %}
 
 
 {% block contents %}
+
+    {% csrf_token %}
     <div class="container mt-3">
-        <h2>Department Page</h2>
-        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 250px">
+
+    {% comment %}<div style="float: left">
+        <div class="rs-select2 js-select-simple select--no-search"
+             style="font-size:small">
+            <select class="rs-select2 js-select-simple select--no-search" id = "course"onchange="load_data()">
+                <option class="nav-link dropdown-toggle" href="#">choose course
+                    <option class="dropdown-item" href="#">B-Tech</option>
+                <option class="dropdown-item" href="#">M-Tech</option>
+
+            </select>
+            <div class="select-dropdown">
+            </div>
+        </div>
+    </div>{% endcomment %}
+
+    <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="load_data()">
+                    <option class="nav-link dropdown-toggle" href="#">choose course
+                    </option>
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container mt-3">
+
+        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 200px;height: 35px;
+        float: right;">
         <br>
         <table class="table table-bordered">
-            <thead>
+            <thead style="font-size: 12px">
             <tr>
                 <th data-field="regno">Reg No.</th>
                 <th data-field="name">Name</th>
                 <th data-field="pin">Pin Code</th>
-                <th data-field="att">Attendence (>75%)</th>
+                {#                <th data-field="att">Attendence (>75%)</th>#}
                 <th data-field="year_back">Year Back</th>
                 <th data-field="cat">Category</th>
 
                 <th data-field="looking">Submit</th>
                 <!--              <button type="button">Submit</button>-->
 
-                <th data-field="operate" data-formatter="operateFormatter" data-align="center"
-                    data-events="operateEvents" data-width="0"></th>
+{#                <th data-field="operate" data-formatter="operateFormatter" data-align="center"#}
+{#                    data-events="operateEvents" data-width="0"></th>#}
             </tr>
             </thead>
-            <tbody id="minimal-tbody">
-            {% for model in models %}
-                {% if model.Pincode %}
-                    <tr>
-                        <td style="" class="reg_no">{{ model.Registration_No }}</td>
-                        <td style="">{{ model.Name }}</td>
-                        <td style="" class="pincode"><input type="number" value="{{ model.Pincode }}"></td>
+            <tbody id="minimal-tbody" style="font-size: 11px">
 
-                        <td style="" class="attendance"><label class="cont">
-                            <input type="checkbox"
-                                    {% if model.attendance %}
-                                   checked="checked"
-                                    {% endif %}   class="checkmark">
-                            <span class="checkmark"></span></label></td>
-
-                        <td style="" class="year_back"><label class="cont1">
-                            <input type="checkbox"
-                                    {% if model.year_back %}
-                                   checked="checked"
-                                    {% endif %}  class="checkmark1">
-                            <span class="checkmark1"></span></label></td>
-
-                        <td style="" class="category"><label class="cont2">{{ model.Category }}
-                            <input type="checkbox"
-                                    {% if model.category_isvalid %}
-                                   checked="checked"
-                                    {% endif %}  class="checkmark2">
-                            <span class="checkmark2"></span></label></td>
-
-                        <td style="">
-                            <button class="login100-form-btn" id="button_submit" onclick="submitted()">Submit</button>
-                        </td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -113,7 +95,8 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript" src="{% static 'Department/js/script.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>#}
     <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'Application/js/main.js' %}"></script>#}
 {% endblock %}
 

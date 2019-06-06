@@ -136,12 +136,13 @@ def reset_password(request):
             context = {'error_heading': 'A Verification link has been sent to your email account',
                        'error_message': 'Please click on the link that has been'
                                         ' sent to your email account to verify'
-                                        ' your email and Reset the passwotrd',
+                                        ' your email and Reset the password',
                        }
         except VerifiedUser.DoesNotExist:
             context = {'error_heading': 'Seems like you are not registered yet',
                        'error_message': 'Please SignUp to continue'}
     return render(request, 'login/login.html', context=context)
+
 
 def reset_confirm(request, token):
     print(token)

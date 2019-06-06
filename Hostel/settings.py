@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c-_w@(j%+kwy-ty(cdmm6y=gempjnv9(^&d$jko^p3zd3c4pwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'Hostel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hostels',
-        'USER': 'hostels',
-        'PASSWORD': 'students',
+        'NAME': 'hostel_management',
+        'USER': 'hostelmanagement',
+        'PASSWORD': 'hostel123',
 
     }
 }
@@ -124,12 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/Hostel/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,"static")
+STATIC_ROOT = os.path.join(BASE_DIR,"")
 
-# STATICFILES_DIRS = [
-#     # location of your application, should not be public web accessible
-#     os.path.join(BASE_DIR, "static")
-# ]
+STATICFILES_DIRS = [
+    # location of your application, should not be public web accessible
+    os.path.join(BASE_DIR, "static")
+]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True

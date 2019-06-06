@@ -1,0 +1,38 @@
+{% for model in models %}
+    {% if model.Pincode %}
+        <tr>
+            <td style="" class="reg_no">{{ model.Registration_No }}</td>
+            <td style="">{{ model.Name }}</td>
+            <td style="" class="pincode"><input type="number" value="{{ model.Pincode }}" class="pin"></td>
+
+            {#                        <td style="" class="attendance"><label class="cont">#}
+            {#                            <input type="checkbox"#}
+            {#                                    {% if model.attendance %}#}
+            {#                                   checked="checked"#}
+            {#                                    {% endif %}   class="checkmark">#}
+            {#                            <span class="checkmark"></span></label></td>#}
+
+            <td style="" class="year_back"><label class="cont1">
+                <input type="checkbox" class="year"
+                        {% if model.year_back %}
+                       checked="checked"
+                        {% endif %}  class="checkmark1">
+                <span class="checkmark1"></span></label></td>
+
+            <td style="" class="category"><label class="cont2">{{ model.Category }}
+                <input type="checkbox" class="category-inner"
+                        {% if model.category_isvalid %}
+                       checked="checked"
+                        {% endif %}  class="checkmark2">
+                <span class="checkmark2"></span></label></td>
+
+            <td style="" class="button">
+                <button class="login100-form-btn allotment_submit" id="button_submit"
+                        {% if model.verified_department %}
+                       style="background-color: #b5b3b2"
+                        {% endif %}
+                        onclick="changeColor(this)">Submit</button>
+            </td>
+        </tr>
+    {% endif %}
+{% endfor %}

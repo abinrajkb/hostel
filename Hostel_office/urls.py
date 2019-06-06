@@ -6,4 +6,8 @@ app_name = 'Hostel_office'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('getdata/', views.get_data, name="get data"),
+    path('savedata/', views.save_data, name="save data"),
+    path('add_dept/', views.add_dept, name="add dept"),
+    path('create/', views.create, name="create"),
 ]
