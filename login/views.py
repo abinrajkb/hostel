@@ -19,9 +19,15 @@ class AuthenticationView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        if self.request.user.Department_portal == "office":
+            return "/office/"
+        elif self.request.user.Department_portal!="student":
+            return  "/department/"
         if not self.request.user.applications.Pincode:
             return "/apply/"
         return "/apply/view/"
+
+
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)

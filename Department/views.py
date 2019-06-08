@@ -6,29 +6,35 @@ from Application.models import Applications
 
 
 def test(user):
+    if user.Department_portal!="student":
+        return True
     return False
 
 
 # Create your views here.
-# @login_required(redirect_field_name='/auth/')
-# @user_passes_test(test, redirect_field_name='/')
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def index(request):
-    obj = Applications.objects.all()
-    return render(request, 'Department/index.html', {'models': obj})
+    department = request.user.Department_portal
+    accecible = request.user.Accessible
+    acceciblelist = accecible.split(",")[:-1]
+    return render(request, 'Department/index.html', {"courses":acceciblelist})
 
 
 # def process_data(request):
 #     pass
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def get_data(request):
     # print(request.POST)
-    models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'])
+    models = Applications.objects.all().filter(Department=request.user.Department_portal, Course_of_study=request.POST['course'])
+    sortedmodels = sorted(models, key=lambda x: x.create_priority_value())
     # print(models)
-    return render(request, 'Department/get_data.html', {'models': models})
+    return render(request, 'Department/get_data.html', {'models': sortedmodels})
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def save_data(request):
     print("views function")
     pin = request.POST['pin']
@@ -48,3 +54,4 @@ def save_data(request):
     models.verified_department = 1
     models.save()
     return HttpResponse("hello")
+

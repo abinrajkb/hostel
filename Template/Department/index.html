@@ -52,16 +52,20 @@
     </div>{% endcomment %}
 
     <div style="float: left">
-            <div class="rs-select2 js-select-simple select--no-search"
-                 style="font-size:small">
-                <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="load_data()">
-                    <option class="nav-link dropdown-toggle" href="#">choose course
-                    </option>
-                </select>
-                <div class="select-dropdown">
-                </div>
+        <div class="rs-select2 js-select-simple select--no-search"
+             style="font-size:small">
+            <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="load_data()">
+                <option class="nav-link dropdown-toggle" href="#">choose course
+                </option>
+                {% for course in courses %}
+                    <option class="nav-link dropdown-toggle" href="#" value="{{ course }}">{{ course }}
+                </option>
+                {% endfor %}
+            </select>
+            <div class="select-dropdown">
             </div>
         </div>
+    </div>
 
 
     <div class="container mt-3">
@@ -82,8 +86,8 @@
                 <th data-field="looking">Submit</th>
                 <!--              <button type="button">Submit</button>-->
 
-{#                <th data-field="operate" data-formatter="operateFormatter" data-align="center"#}
-{#                    data-events="operateEvents" data-width="0"></th>#}
+                {#                <th data-field="operate" data-formatter="operateFormatter" data-align="center"#}
+                {#                    data-events="operateEvents" data-width="0"></th>#}
             </tr>
             </thead>
             <tbody id="minimal-tbody" style="font-size: 11px">
@@ -97,6 +101,6 @@
 {% block scripts %}
     {#    <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>#}
     <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>
-{#    <script type="text/javascript" src="{% static 'Application/js/main.js' %}"></script>#}
+    {#    <script type="text/javascript" src="{% static 'Application/js/main.js' %}"></script>#}
 {% endblock %}
 

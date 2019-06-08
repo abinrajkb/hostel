@@ -8,13 +8,14 @@ from login.models import VerifiedUser
 
 
 def test(user):
+    if user.Department_portal=="office":
+        return True
     return False
 
 
 # Create your views here.
-# @login_required(redirect_field_name='/auth/')
-# @user_passes_test(test, redirect_field_name='/')
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def index(request):
     departments = [
         "Choose department",
@@ -51,7 +52,8 @@ def index(request):
     }
     return render(request, 'Hostel_office/index.html', context)
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def get_data(request):
     # print(request.POST)
     models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'],
@@ -59,7 +61,8 @@ def get_data(request):
     # print(models)
     return render(request, 'Hostel_office/get_data.html', {'models': models})
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def save_data(request):
     select = request.POST['select']
     reg = request.POST['reg']
@@ -79,7 +82,8 @@ def save_data(request):
     models.save()
     return HttpResponse("hello")
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def add_dept(request):
     departments = [
         "Choose department",
@@ -116,7 +120,8 @@ def add_dept(request):
     }
     return render(request, 'Hostel_office/add_data.html', context)
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def create(request):
     departments = [
         "Choose department",

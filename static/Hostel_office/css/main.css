@@ -966,3 +966,59 @@ tr {
     text-align: center;
     display: none;
 }
+.main-button {
+
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #38c225;
+    border: 2px solid transparent;
+    border-radius: 60px;
+    margin-top: 70px;
+    color: #FFF;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+
+
+}
+
+
+@media screen and (max-width: 510px) {
+    .main-button {
+        margin-top: 120px;
+    }
+}
+
+.main-button:hover, .main-button:focus {
+    background-color: #fff;
+    border: 2px solid #38c225;
+    color: #38c225;
+
+}
+
+.main-button.icon-button:hover, .main-button.icon-button:focus {
+    padding-right: 45px;
+}
+
+.main-button.icon-button:after {
+    content: ">>";
+    font-family: Poppins-Regular;
+    position: absolute;
+    width: 30px;
+    right: 15px;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.main-button {
+    content: "!";
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.main-button.icon-button:hover:after, .main-button.icon-button:focus:after {
+    opacity: 1;
+}

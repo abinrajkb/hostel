@@ -492,6 +492,18 @@ class Applications(models.Model):
     Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None, blank=True, null=True)
     Room_No = CharField(max_length=255, default=0)
 
+    def create_priority_value(self):
+        priority_value = self.distance
+        if self.Physically_Handicapped:
+            priority_value+=10000000
+
+        if self.Prime_Ministers_program or self.State =="Lakshadweep (UT)":
+            priority_value+=1000000
+        if self.Category!="GEN":
+            priority_value+=100000
+        priority_value+=self.Year_of_Study*10000
+        return priority_value
+
 
 @receiver(post_save, sender=login_models.VerifiedUser)
 def create_user_application(sender, instance, created, **kwargs):
