@@ -47,7 +47,8 @@
         <div style="float: left">
             <div class="rs-select2 js-select-simple select--no-search"
                  style="font-size:small">
-                <select class="rs-select2 js-select-simple select--no-search" id="dept" onchange="load_course_and_date()">
+                <select class="rs-select2 js-select-simple select--no-search" id="dept"
+                        onchange="load_course_and_date()">
                     {% for department in departments %}
                         <option class="dropdown-item" href="#">{{ department }}</option>
                     {% endfor %}
@@ -96,6 +97,7 @@
                 <th data-field="name">Name</th>
                 <th data-field="phy_hand">Physically Handicapped</th>
                 <th data-field="pm">Prime Minister Scheme</th>
+                <th data-field="ld">Lakshadweep (UT)</th>
                 <th data-field="caste">Category</th>
                 <th data-field="year">Year of study</th>
                 <th data-field="dis">Distance</th>

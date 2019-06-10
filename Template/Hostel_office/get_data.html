@@ -17,7 +17,11 @@
                 {% else %} no
                 {% endif %}  </label>
             </td>
-
+            <td style="" class="lashadweep"><label class="cont1">
+                {% if model.State == "Lakshadweep (UT)" %} yes
+                {% else %} no
+                {% endif %}  </label>
+            </td>
             <td style="" class="category">
                 {% if model.category_isvalid %}
                     {{ model.Category }}

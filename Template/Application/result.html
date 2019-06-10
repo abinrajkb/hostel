@@ -24,13 +24,13 @@
             </ul>
             <ul class="navbar-nav ">
                 <li class="nav-item ">
-                    <a href="{% url 'Application:apply' %}" class="bez nav-link active1">Apply</a>
+                    <a href="{% url 'Application:apply' %}" class="bez nav-link ">Apply</a>
                 </li>
                 <li class="nav-item ">
                     <a href="{% url 'Application:view' %}" class="bez nav-link">View</a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{% url 'Application:result' %}" class="bez nav-link">Result</a>
+                    <a href="{% url 'Application:result' %}" class="bez nav-link active1">Result</a>
                 </li>
                 <li class="nav-item ">
                     <a href="{% url 'login:Logout' %}" class="bez nav-link">Logout</a>
@@ -50,4 +50,8 @@
             <span class="login100-form-title-1">You have not been admitted yet </span
         {% endif %}
     </div>
+{% endblock %}
+
+{% block scripts %}
+        <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
 {% endblock %}

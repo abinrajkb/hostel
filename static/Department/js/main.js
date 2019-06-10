@@ -160,12 +160,18 @@ function priority() {
             csrfmiddlewaretoken: csrf
         },
         success: function (data) {
-
-            var w = window.open('about:blank');
-            w.document.open();
-            w.document.write(data);
-            w.document.close();
+            back_data = $("html").html()
+            $("html").html(data)
         }
     });
 }
 
+function goback() {
+          $.ajax('/department/', {
+        method: 'get',
+
+        success: function (data) {
+            $("html").html(data)
+        }
+    });
+    }

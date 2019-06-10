@@ -495,6 +495,8 @@ class Applications(models.Model):
 
     def create_priority_value(self):
         priority_value = self.distance
+        if self.admitted == 1:
+            priority_value += 100000000
         if self.Physically_Handicapped:
             priority_value += 10000000
 

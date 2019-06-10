@@ -56,19 +56,20 @@ def save_data(request):
     models.verified_department = 1
     print(pin)
     source = "682022"
-    dest = str(pin)
-    link = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + source + "&destinations=" + dest + "&key=AIzaSyCE69Rb-G9LtjgZ1EEx2qyN19xpNj67_JI"
-    r = requests.get(link)
-    y = r.json()
-    dist = y["rows"][0]["elements"][0]["distance"]["text"]
-    dist = dist[0:len(dist) - 3]
-    dist = float(dist)
-    print(dist)
-    models.distance = dist
+    if (pin == "682022"):
+        models.distance = 0
+    else:
+        dest = str(pin)
+        link = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + source + "&destinations=" + dest + "&key=AIzaSyCE69Rb-G9LtjgZ1EEx2qyN19xpNj67_JI"
+        r = requests.get(link)
+        y = r.json()
+        dist = y["rows"][0]["elements"][0]["distance"]["text"]
+        dist = dist[0:len(dist) - 3]
+        dist = float(dist)
+        print(dist)
+        models.distance = dist
     models.save()
     return HttpResponse("hello")
-
-
 
 
 @login_required(redirect_field_name='/auth/')
@@ -85,7 +86,7 @@ def priority(request):
             models_valid.append(i)
 
     print(models_valid)
-    sortedmodels = sorted(models_valid, key=lambda x: x.create_priority_value(), reverse= True)
+    sortedmodels = sorted(models_valid, key=lambda x: x.create_priority_value(), reverse=True)
     print(sortedmodels)
     return render(request, 'Department/priority.html', {'models': sortedmodels, 'Department': department,
                                                         'Course': course})

@@ -9,6 +9,6 @@ urlpatterns = [
     path('getdata/', views.get_data, name="get data"),
     path('savedata/', views.save_data, name="save data"),
     path('priority/', views.priority, name='priority'),
-    path('new/', views.new, name='new')
+
 
 ]
