@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="Incomplete version.">
-      <change beforePath="$PROJECT_DIR$/.idea/Hostel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Hostel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Department/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Department/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Department/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Department/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hostel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Application/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Application/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Department/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Department/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Department/priority.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Department/priority.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Homepage/instructions.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Homepage/instructions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Hostel_office/get_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Hostel_office/get_data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Hostel_office/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Hostel_office/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Department/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/Department/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
+            <state relative-caret-position="525">
               <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
             </state>
           </provider>
@@ -88,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/Homepage/instructions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
+            <state relative-caret-position="780">
               <caret line="52" column="82" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
             </state>
           </provider>
@@ -97,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="128" selection-start-line="128" selection-end-line="128" />
+            <state relative-caret-position="720">
+              <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -274,6 +260,16 @@
             <path>
               <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
               <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
+              <item name="Homepage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
+              <item name="Hostel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -305,6 +301,12 @@
               <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
               <item name="Template" type="462c0819:PsiDirectoryNode" />
               <item name="Department" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
+              <item name="Template" type="462c0819:PsiDirectoryNode" />
+              <item name="Homepage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
@@ -418,7 +420,8 @@
       <workItem from="1559629636226" duration="46381000" />
       <workItem from="1559981868624" duration="53018000" />
       <workItem from="1560190899927" duration="1783000" />
-      <workItem from="1560192718106" duration="293000" />
+      <workItem from="1560192718106" duration="1940000" />
+      <workItem from="1560195368953" duration="248000" />
     </task>
     <task id="LOCAL-00001" summary="added ico">
       <created>1558504175793</created>
@@ -672,11 +675,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560173116961</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Incomplete version.">
+      <created>1560193039578</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1560193039578</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Incomplete version.">
+      <created>1560194388647</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1560194388647</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338155000" />
+    <option name="totallyTimeSpent" value="340050000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -689,9 +706,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.15022762" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.15250379" />
       <window_info id="Structure" order="1" sideWeight="0.50121063" side_tool="true" weight="0.13657056" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -705,9 +721,9 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49889135" weight="0.32792208" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" weight="0.3293348" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50110865" side_tool="true" weight="0.35223556" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" weight="0.36314067" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32954547" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" visible="true" weight="0.36363637" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32954547" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -762,7 +778,8 @@
     <MESSAGE value="Minor update." />
     <MESSAGE value="Spelling mistakes." />
     <MESSAGE value="completed department and office" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed department and office" />
+    <MESSAGE value="Incomplete version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Incomplete version." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/bin/python">
@@ -1010,6 +1027,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Homepage/instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="82" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7350">
@@ -1041,24 +1072,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Homepage/instructions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="52" column="82" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        <state relative-caret-position="720">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
         </state>
       </provider>
     </entry>
