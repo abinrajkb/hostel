@@ -57,9 +57,17 @@ def index(request):
 def get_data(request):
     # print(request.POST)
     models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'],
-                                               Gender=request.POST['gender'])
-    # print(models)
-    return render(request, 'Hostel_office/get_data.html', {'models': models})
+                                               Gender=request.POST['gender'],verified_department='1')
+    print(request.POST)
+    print('Hiiiiii')
+    print(request.POST['course'])
+    # models = Applications.objects.all().filter(Department=request.user.Department_portal,
+    #                                            Course_of_study=request.POST['course'])
+
+    sortedmodels = sorted(models, key=lambda x: x.create_priority_value(),reverse=True)
+    print(models)
+    print(sortedmodels)
+    return render(request, 'Hostel_office/get_data.html', {'models': sortedmodels})
 
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')

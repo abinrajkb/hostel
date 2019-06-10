@@ -36,30 +36,15 @@
 
     {% csrf_token %}
     <div class="container mt-3">
-
-    {% comment %}<div style="float: left">
-        <div class="rs-select2 js-select-simple select--no-search"
-             style="font-size:small">
-            <select class="rs-select2 js-select-simple select--no-search" id = "course"onchange="load_data()">
-                <option class="nav-link dropdown-toggle" href="#">choose course
-                    <option class="dropdown-item" href="#">B-Tech</option>
-                <option class="dropdown-item" href="#">M-Tech</option>
-
-            </select>
-            <div class="select-dropdown">
-            </div>
-        </div>
-    </div>{% endcomment %}
-
     <div style="float: left">
         <div class="rs-select2 js-select-simple select--no-search"
              style="font-size:small">
-            <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="load_data()">
+            <select class="rs-select2 js-select-simple select--no-search" name="course" id="course" onchange="load_data()">
                 <option class="nav-link dropdown-toggle" href="#">choose course
                 </option>
                 {% for course in courses %}
                     <option class="nav-link dropdown-toggle" href="#" value="{{ course }}">{{ course }}
-                </option>
+                    </option>
                 {% endfor %}
             </select>
             <div class="select-dropdown">
@@ -95,7 +80,7 @@
             </tbody>
         </table>
     </div>
-
+    <a class="main-button icon-button" onclick="priority()">Submit All</a>
 {% endblock %}
 
 {% block scripts %}

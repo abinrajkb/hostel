@@ -146,5 +146,22 @@ function load_data() {
 
 function changeColor(btn) {
     btn.style.backgroundColor = "#b5b3b2";
+
+}
+
+function priority() {
+    console.log('a');
+    var course = document.getElementById('course').value;
+    var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+    $.ajax('priority/', {
+        method: 'post',
+        data: {
+            course: course,
+            csrfmiddlewaretoken: csrf
+        },
+        success: function(data){
+            $("pid").html(data)
+        }
+    });
 }
 

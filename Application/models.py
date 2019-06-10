@@ -480,8 +480,9 @@ class Applications(models.Model):
     Course_completion_date = DateField(default=timezone.now)
     CAT_Rank = IntegerField(default=0, null=True, blank=True)
     Prime_Ministers_program = IntegerField(default=0)
-    Photo_upload = models.FileField(upload_to=user_directory_path, storage=OverwriteStorage(location=settings.MEDIA_ROOT),
-                              default='settings.MEDIA_ROOT/anonymous.jpg')
+    Photo_upload = models.FileField(upload_to=user_directory_path,
+                                    storage=OverwriteStorage(location=settings.MEDIA_ROOT),
+                                    default='settings.MEDIA_ROOT/anonymous.jpg')
     isvalid = models.BooleanField(default=1, blank=True, null=True)
     category_isvalid = models.BooleanField(default=1, blank=True, null=True)
     distance = models.IntegerField(default=25, blank=True, null=True)
@@ -495,13 +496,17 @@ class Applications(models.Model):
     def create_priority_value(self):
         priority_value = self.distance
         if self.Physically_Handicapped:
-            priority_value+=10000000
+            priority_value += 10000000
 
-        if self.Prime_Ministers_program or self.State =="Lakshadweep (UT)":
-            priority_value+=1000000
-        if self.Category!="GEN":
-            priority_value+=100000
-        priority_value+=self.Year_of_Study*10000
+        if self.Prime_Ministers_program or self.State == "Lakshadweep (UT)":
+            priority_value += 1000000
+        if self.Category == "SC" or self.Category == "ST" or self.Category == "OEC":
+            priority_value += 100000
+        if self.Category == "OBC":
+            priority_value += 50000
+        priority_value += self.Year_of_Study * 10000
+        # priority_value -= self.CAT_Rank
+        print(priority_value)
         return priority_value
 
 
