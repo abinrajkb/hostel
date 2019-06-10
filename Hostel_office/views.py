@@ -8,7 +8,7 @@ from login.models import VerifiedUser
 
 
 def test(user):
-    if user.Department_portal=="office":
+    if user.Department_portal == "office":
         return True
     return False
 
@@ -52,22 +52,16 @@ def index(request):
     }
     return render(request, 'Hostel_office/index.html', context)
 
+
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
 def get_data(request):
     # print(request.POST)
     models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'],
-                                               Gender=request.POST['gender'],verified_department='1')
-    print(request.POST)
-    print('Hiiiiii')
-    print(request.POST['course'])
-    # models = Applications.objects.all().filter(Department=request.user.Department_portal,
-    #                                            Course_of_study=request.POST['course'])
-
-    sortedmodels = sorted(models, key=lambda x: x.create_priority_value(),reverse=True)
-    print(models)
-    print(sortedmodels)
+                                               Gender=request.POST['gender'], verified_department='1',year_back='0')
+    sortedmodels = sorted(models, key=lambda x: x.create_priority_value(), reverse=True)
     return render(request, 'Hostel_office/get_data.html', {'models': sortedmodels})
+
 
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
@@ -89,6 +83,7 @@ def save_data(request):
         models.Room_No = 0
     models.save()
     return HttpResponse("hello")
+
 
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
@@ -127,6 +122,7 @@ def add_dept(request):
         "models": Applications.objects.all()
     }
     return render(request, 'Hostel_office/add_data.html', context)
+
 
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')

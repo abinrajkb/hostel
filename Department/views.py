@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import requests, json
 from Application.models import Applications
+from login.models import VerifiedUser
 
 
 def test(user):
@@ -27,15 +28,10 @@ def index(request):
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
 def get_data(request):
-    print(request.POST)
-    print('Hiiiiii')
-    print(request.POST['course'])
     models = Applications.objects.all().filter(Department=request.user.Department_portal,
                                                Course_of_study=request.POST['course'])
 
     sortedmodels = sorted(models, key=lambda x: x.create_priority_value())
-    print(models)
-    print(sortedmodels)
     return render(request, 'Department/get_data.html', {'models': sortedmodels})
 
 
@@ -72,12 +68,35 @@ def save_data(request):
     models.save()
     return HttpResponse("hello")
 
+
+global_department = ''
+global_course = ''
+
+
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def priority(request):
-    print(request.POST)
-    print("hahaha")
-    # models = Applications.objects.all().filter(Department=request.user.Department_portal,
-    #                                            Course_of_study=request.POST['course'])
-    # sortedmodels = sorted(models, key=lambda x: x.create_priority_value())
-    # print(models)
-    # print(sortedmodels)
-    return render(request, 'Department/priority.html')
+    global global_course, global_department
+    global_course = request.POST['course']
+    user = (request.user)
+    global_department = VerifiedUser.objects.get(username=user).Department_portal
+    return HttpResponse('Hiii')
+
+
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
+def new(request):
+    print(global_department)
+    print(global_course)
+    models = Applications.objects.all().filter(Department=global_department, Course_of_study=global_course,
+                                               verified_department='1', year_back='0')
+    models_valid = []
+    for i in models:
+        if i.distance_valid():
+            models_valid.append(i)
+
+    print(models_valid)
+    sortedmodels = sorted(models_valid, key=lambda x: x.create_priority_value(), reverse= True)
+    print(sortedmodels)
+    return render(request, 'Department/priority.html', {'models': sortedmodels, 'Department': global_department,
+                                                        'Course': global_course})

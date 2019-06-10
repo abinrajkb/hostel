@@ -160,7 +160,8 @@ function priority() {
             csrfmiddlewaretoken: csrf
         },
         success: function(data){
-            $("pid").html(data)
+
+            window.location.href =  'new/'
         }
     });
 }

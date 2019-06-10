@@ -2,5 +2,85 @@
 {% load static %}
 
 {% block contents %}
-    <h1>Hiiiiiii</h1>
+    <h2 style="text-align: center">Priority List for {{ Department }} - {{ Course }}</h2>
+    <div style="margin: 50px">
+        <h3 style="text-align: center ; text-decoration: underline">Male</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in models %}
+                {% if model.Gender == 'Male' %}
+                    <tr>
+                        <td>{{ model.Registration_No }}</td>
+                        <td>{{ model.Name }}</td>
+                        {% if model.category_isvalid == 1 %}
+                            <td>{{ model.Category }}</td>
+                        {% else %}
+                            <td>GEN</td>
+                        {% endif %}
+                        {% if model.Physically_Handicapped %}
+                            <td>Yes</td>
+                        {% else %}
+                            <td>No</td>
+                        {% endif %}
+                        <td>{{ model.Year_of_Study }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <h3 style="text-align: center; text-decoration: underline">Female</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in models %}
+                {% if model.Gender == 'Female' %}
+                    <tr>
+                        <td>{{ model.Registration_No }}</td>
+                        <td>{{ model.Name }}</td>
+                        {% if model.category_isvalid == 1 %}
+                            <td>{{ model.Category }}</td>
+                        {% else %}
+                            <td>GEN</td>
+                        {% endif %}
+                        {% if model.Physically_Handicapped %}
+                            <td>Yes</td>
+                        {% else %}
+                            <td>No</td>
+                        {% endif %}
+                        <td>{{ model.Year_of_Study }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="#" class="main-button icon-button" onclick="print()">Print</a>
+
+    <a href="{% url 'Department:index' %}" class="main-button icon-button">Back</a>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
 {% endblock %}

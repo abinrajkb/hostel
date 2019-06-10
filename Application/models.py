@@ -500,14 +500,32 @@ class Applications(models.Model):
 
         if self.Prime_Ministers_program or self.State == "Lakshadweep (UT)":
             priority_value += 1000000
-        if self.Category == "SC" or self.Category == "ST" or self.Category == "OEC":
-            priority_value += 100000
+        if (self.Category == "SC" or self.Category == "ST" or self.Category == "OEC"):
+            if (self.category_isvalid == 1):
+                priority_value += 100000
+            else:
+                priority_value += 0
+
         if self.Category == "OBC":
-            priority_value += 50000
+            if (self.category_isvalid == 1):
+                priority_value += 50000
+            else:
+                priority_value += 0
+
         priority_value += self.Year_of_Study * 10000
         # priority_value -= self.CAT_Rank
         print(priority_value)
         return priority_value
+
+    def distance_valid(self):
+        if (
+                self.Category == 'SC' or self.Category == 'ST' or self.Category == 'OEC' or self.Physically_Handicapped == '1'):
+            return True
+        else:
+            if (self.distance < 25):
+                return False
+            else:
+                return True
 
 
 @receiver(post_save, sender=login_models.VerifiedUser)
