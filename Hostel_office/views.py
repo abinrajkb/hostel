@@ -58,7 +58,7 @@ def index(request):
 def get_data(request):
     # print(request.POST)
     models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'],
-                                               Gender=request.POST['gender'], verified_department='1',year_back='0')
+                                               Gender=request.POST['gender'], verified_department='1', year_back='0')
     sortedmodels = sorted(models, key=lambda x: x.create_priority_value(), reverse=True)
     return render(request, 'Hostel_office/get_data.html', {'models': sortedmodels})
 
@@ -175,3 +175,12 @@ def create(request):
             return HttpResponse('Duplicate User Found,Try other Name')
     else:
         return HttpResponseRedirect('/office/add_dept/')
+
+
+def printdata(request):
+    print(request.POST['regno'])
+    return HttpResponse('None')
+
+
+def printuser(request):
+    render(request, 'Hostel_office/printuser.html')

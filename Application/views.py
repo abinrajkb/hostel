@@ -45,4 +45,6 @@ def view_application(request):
 def result(request):
     user = request.user
     admitted = user.applications
+    print(request.user)
+    print(user.applications.admitted)
     return render(request, 'Application/result.html', {'context': admitted})

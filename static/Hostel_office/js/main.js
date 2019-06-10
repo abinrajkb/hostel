@@ -34,6 +34,23 @@ function load_data() {
                 });
 
             });
+
+            $(".print_button").on("click", function () {
+                var select = $($(this).parent().parent()).children(".reg_no").text();
+                console.log(select);
+                $.ajax("/office/printdata" +
+                    "/", {
+                    method: "post",
+                    data: {
+                        select: select,
+                        reg: reg,
+                        ischeck: ischeck,
+                        room: room,
+                        csrfmiddlewaretoken: csrf
+                    }
+                });
+
+            });
         }
     });
 }
@@ -262,3 +279,16 @@ function load_course() {
 }
 
 load_dept_office();
+
+$(".print_button").on("click", function () {
+                var select = $($(this).parent().parent()).children(".reg_no").val();
+                console.log(select);
+                $.ajax("/office/printdata", {
+                    method: "post",
+                    data: {
+                        regno: select,
+                        csrfmiddlewaretoken: csrf
+                    },
+                });
+
+            });

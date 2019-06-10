@@ -632,3 +632,9 @@ input.input100 {
         font-size: 9px;
     }
 }
+.padding{
+  margin: auto;
+  width:40em;
+  margin-top: 20%;
+
+}
