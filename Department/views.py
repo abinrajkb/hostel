@@ -69,26 +69,15 @@ def save_data(request):
     return HttpResponse("hello")
 
 
-global_department = ''
-global_course = ''
 
 
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
 def priority(request):
-    global global_course, global_department
-    global_course = request.POST['course']
+    course = request.POST['course']
     user = (request.user)
-    global_department = VerifiedUser.objects.get(username=user).Department_portal
-    return HttpResponse('Hiii')
-
-
-@login_required(redirect_field_name='/auth/')
-@user_passes_test(test, redirect_field_name='/')
-def new(request):
-    print(global_department)
-    print(global_course)
-    models = Applications.objects.all().filter(Department=global_department, Course_of_study=global_course,
+    department = request.user.Department_portal;
+    models = Applications.objects.all().filter(Department=department, Course_of_study=course,
                                                verified_department='1', year_back='0')
     models_valid = []
     for i in models:
@@ -98,5 +87,5 @@ def new(request):
     print(models_valid)
     sortedmodels = sorted(models_valid, key=lambda x: x.create_priority_value(), reverse= True)
     print(sortedmodels)
-    return render(request, 'Department/priority.html', {'models': sortedmodels, 'Department': global_department,
-                                                        'Course': global_course})
+    return render(request, 'Department/priority.html', {'models': sortedmodels, 'Department': department,
+                                                        'Course': course})

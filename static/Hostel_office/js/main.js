@@ -289,7 +289,7 @@ $(".print_button").on("click", function () {
             csrfmiddlewaretoken: csrf
         },
         success:function (data) {
-            console.log(data)
+            window.location.href= "printuser/"
         }
     });
 

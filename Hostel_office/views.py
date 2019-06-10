@@ -183,4 +183,5 @@ def printdata(request):
 
 
 def printuser(request):
+    print('hiii')
     render(request, 'Hostel_office/printuser.html')

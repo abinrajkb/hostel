@@ -159,9 +159,12 @@ function priority() {
             course: course,
             csrfmiddlewaretoken: csrf
         },
-        success: function(data){
+        success: function (data) {
 
-            window.location.href =  'new/'
+            var w = window.open('about:blank');
+            w.document.open();
+            w.document.write(data);
+            w.document.close();
         }
     });
 }
