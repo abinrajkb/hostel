@@ -28,7 +28,7 @@ def submitted(request):
     else:
         applicationform.show_error = True
         context = {
-            "invalid":"The application is invalid please try again",
+            "invalid": "The application is invalid please try again",
             "form": applicationform
         }
         return render(request, 'Application/index.html', context)
@@ -41,3 +41,8 @@ def view_application(request):
     return render(request, "Application/view.html", {})
 
 
+@login_required(redirect_field_name='/auth/')
+def result(request):
+    user = request.user
+    admitted = user.applications
+    return render(request, 'Application/result.html', {'context': admitted})

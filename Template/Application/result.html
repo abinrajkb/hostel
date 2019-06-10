@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+    {% if context.admitted == 1 %}
+        <h1>You are admitted to {{ context.Hostel_admitted }}. Room no- {{ context.Room_No }}</h1>
+    {% else %}
+        <h1>You are not admittted</h1>
+    {% endif %}
+
+{% endblock %}

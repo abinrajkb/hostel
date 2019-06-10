@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="Spelling mistakes.">
-      <change afterPath="$PROJECT_DIR$/Template/Department/priority.html" afterDir="false" />
+    <list default="true" id="b0825196-4d23-4d7b-aeb0-a8a1d57eff99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Template/Application/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Department/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Department/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Department/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Department/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hostel_office/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hostel_office/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Department/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Department/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Hostel_office/get_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Hostel_office/get_data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Template/Hostel_office/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Hostel_office/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Department/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/Department/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Hostel_office/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Hostel_office/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Hostel_office/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/Hostel_office/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/Application/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Application/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/Application/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/Template/Application/view.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Department/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+            <state relative-caret-position="322">
+              <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
               </folding>
@@ -74,37 +68,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
+        <entry file="file://$PROJECT_DIR$/Template/Application/view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="450">
+              <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Template/Department/get_data.html">
+        <entry file="file://$PROJECT_DIR$/Template/Application/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="37" column="12" lean-forward="true" selection-end-line="37" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Template/Department/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+            <state relative-caret-position="450">
+              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Department/urls.py">
+        <entry file="file://$PROJECT_DIR$/Application/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+            <state relative-caret-position="135">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -113,10 +98,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Department/js/main.js">
+        <entry file="file://$PROJECT_DIR$/Application/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="162" column="31" selection-start-line="162" selection-start-column="31" selection-end-line="162" selection-end-column="31" />
+            <state relative-caret-position="472">
+              <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Template/Application/result.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/login_verifieduser">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+              <filtering>
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/Application_applications">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+              <filtering>
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/login_verifieduser_groups">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+              <filtering>
+                <filter text="" />
+              </filtering>
             </state>
           </provider>
         </entry>
@@ -124,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="507" column="8" lean-forward="true" selection-start-line="507" selection-start-column="10" selection-end-line="507" selection-end-column="41" />
+            <state relative-caret-position="307">
+              <caret line="527" column="27" lean-forward="true" selection-start-line="527" selection-start-column="27" selection-end-line="527" selection-end-column="27" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -178,9 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/Department/js/script.js" />
-        <option value="$PROJECT_DIR$/Application/views.py" />
-        <option value="$PROJECT_DIR$/Homepage/apps.py" />
         <option value="$PROJECT_DIR$/Hostel/urls.py" />
         <option value="$PROJECT_DIR$/Template/404.html" />
         <option value="$PROJECT_DIR$/Template/403.html" />
@@ -189,9 +216,7 @@
         <option value="$PROJECT_DIR$/Application/forms.py" />
         <option value="$PROJECT_DIR$/static/login/js/main.js" />
         <option value="$PROJECT_DIR$/static/Homepage/css/homepage_util.css" />
-        <option value="$PROJECT_DIR$/Template/Application/index.html" />
         <option value="$PROJECT_DIR$/static/Application/css/main.css" />
-        <option value="$PROJECT_DIR$/Template/Application/view.html" />
         <option value="$PROJECT_DIR$/static/Homepage/css/how_to_apply.css" />
         <option value="$PROJECT_DIR$/Template/Homepage/how_to_apply.html" />
         <option value="$PROJECT_DIR$/Homepage/views.py" />
@@ -208,7 +233,6 @@
         <option value="$PROJECT_DIR$/static/Hostel_office/js/script.js" />
         <option value="$PROJECT_DIR$/Homepage/urls.py" />
         <option value="$PROJECT_DIR$/Template/Homepage/instructions.html" />
-        <option value="$PROJECT_DIR$/Template/Department/get_data.html" />
         <option value="$PROJECT_DIR$/static/login/css/main.css" />
         <option value="$PROJECT_DIR$/static/Application/js/main.js" />
         <option value="$PROJECT_DIR$/Hostel_office/urls.py" />
@@ -217,18 +241,24 @@
         <option value="$PROJECT_DIR$/login/models.py" />
         <option value="$PROJECT_DIR$/Template/Hostel_office/add_data.html" />
         <option value="$PROJECT_DIR$/login/views.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/static/Hostel_office/css/main.css" />
         <option value="$PROJECT_DIR$/static/Hostel_office/js/main.js" />
-        <option value="$PROJECT_DIR$/Template/Hostel_office/index.html" />
-        <option value="$PROJECT_DIR$/Application/models.py" />
-        <option value="$PROJECT_DIR$/Hostel_office/views.py" />
-        <option value="$PROJECT_DIR$/Template/Hostel_office/get_data.html" />
         <option value="$PROJECT_DIR$/Department/urls.py" />
         <option value="$PROJECT_DIR$/static/Department/js/main.js" />
-        <option value="$PROJECT_DIR$/Department/views.py" />
-        <option value="$PROJECT_DIR$/Template/Department/priority.html" />
+        <option value="$PROJECT_DIR$/static/Hostel_office/css/main.css" />
+        <option value="$PROJECT_DIR$/Hostel_office/views.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/Template/Department/index.html" />
+        <option value="$PROJECT_DIR$/Template/Department/get_data.html" />
+        <option value="$PROJECT_DIR$/Template/Hostel_office/index.html" />
+        <option value="$PROJECT_DIR$/Template/Hostel_office/get_data.html" />
+        <option value="$PROJECT_DIR$/Application/models.py" />
+        <option value="$PROJECT_DIR$/Template/Department/priority.html" />
+        <option value="$PROJECT_DIR$/Department/views.py" />
+        <option value="$PROJECT_DIR$/Template/Application/index.html" />
+        <option value="$PROJECT_DIR$/Application/urls.py" />
+        <option value="$PROJECT_DIR$/Template/Application/view.html" />
+        <option value="$PROJECT_DIR$/Application/views.py" />
+        <option value="$PROJECT_DIR$/Template/Application/result.html" />
       </list>
     </option>
   </component>
@@ -274,38 +304,13 @@
             <path>
               <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
               <item name="hostel" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hostel" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Department" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hostel" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Department" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hostel" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Hostel_office" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hostel" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Hostel_office" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Template" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
               <item name="hostel" type="462c0819:PsiDirectoryNode" />
               <item name="Template" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
@@ -318,6 +323,11 @@
               <item name="hostel" type="462c0819:PsiDirectoryNode" />
               <item name="Template" type="462c0819:PsiDirectoryNode" />
               <item name="Hostel_office" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hostel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hostel" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -424,7 +434,7 @@
       <workItem from="1559380166190" duration="124000" />
       <workItem from="1559381056087" duration="47918000" />
       <workItem from="1559629636226" duration="46381000" />
-      <workItem from="1559981868624" duration="29700000" />
+      <workItem from="1559981868624" duration="53018000" />
     </task>
     <task id="LOCAL-00001" summary="added ico">
       <created>1558504175793</created>
@@ -664,11 +674,25 @@
       <option name="project" value="LOCAL" />
       <updated>1559981883315</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Spelling mistakes.">
+      <created>1560147093996</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1560147093996</updated>
+    </task>
+    <task id="LOCAL-00036" summary="completed department and office">
+      <created>1560173116961</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1560173116961</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311718000" />
+    <option name="totallyTimeSpent" value="335036000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -688,7 +712,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49889135" visible="true" weight="0.35223556" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49889135" visible="true" weight="0.3140676" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -704,7 +728,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32852808" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18791574" />
+      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.18791574" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,63 +753,10 @@
     <MESSAGE value="Included the instructions page." />
     <MESSAGE value="Minor update." />
     <MESSAGE value="Spelling mistakes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Spelling mistakes." />
+    <MESSAGE value="completed department and office" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed department and office" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hostel/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="72" column="88" lean-forward="true" selection-start-line="72" selection-start-column="88" selection-end-line="72" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/login/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -812,13 +783,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/migrations/0003_applications_room_no.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Homepage/homepage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="38" selection-end-column="93" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -875,25 +839,6 @@
     <entry file="file://$PROJECT_DIR$/Homepage/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/login_verifieduser_groups">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/Hostel_office/js/map-custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -915,20 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Hostel_office/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5402">
-          <caret line="1025" selection-start-line="1025" selection-end-line="1025" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Hostel_office/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hostel_office/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -936,56 +867,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="87" lean-forward="true" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-203">
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Department/models.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="507" column="8" lean-forward="true" selection-start-line="507" selection-start-column="10" selection-end-line="507" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/Application_applications">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hostel_office/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="59" column="101" selection-start-line="59" selection-start-column="101" selection-end-line="59" selection-end-column="101" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/Hostel_office/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1004,6 +887,199 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Department/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/auth_group">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Department/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1987">
+          <caret line="163" column="42" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Homepage/css/details_util.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="188" column="52" selection-start-line="188" selection-start-column="52" selection-end-line="188" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Hostel_office/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="1026" column="22" selection-start-line="1026" selection-start-column="22" selection-end-line="1026" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.7/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3425">
+          <caret line="400" column="40" lean-forward="true" selection-start-line="400" selection-start-column="40" selection-end-line="400" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Hostel_office/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="99" column="51" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Hostel_office/get_data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Department/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="e#74#100#0#HTML" expanded="true" />
+            <element signature="e#148#168#0#HTML" expanded="true" />
+            <element signature="e#181#236#0#HTML" expanded="true" />
+            <element signature="e#233#276#0#HTML" expanded="true" />
+            <element signature="e#641#664#0#HTML" expanded="true" />
+            <element signature="e#1388#1442#0#HTML" expanded="true" />
+            <element signature="e#1332#1355#0#HTML" expanded="true" />
+            <element signature="e#1804#1827#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Department/get_data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1005">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Homepage/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="38" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hostel_office/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Department/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Application/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Application/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="527" column="27" lean-forward="true" selection-start-line="527" selection-start-column="27" selection-end-line="527" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/login_verifieduser">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
@@ -1013,58 +1089,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Hostel_office/get_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+    <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/login_verifieduser_groups">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Department/get_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="37" column="12" lean-forward="true" selection-end-line="37" selection-end-column="12" />
+    <entry file="das://afc0e94b-159c-4068-a7ad-f0f8fd91ac8f/schema/hostel_management/table/Application_applications">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="4c1d6aef-7f6a-4a2b-91f7-efccc3242c4f">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Department/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="162" column="31" selection-start-line="162" selection-start-column="31" selection-end-line="162" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Department/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Department/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
+    <entry file="file://$PROJECT_DIR$/Template/Application/result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Department/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="81" column="10" lean-forward="true" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
