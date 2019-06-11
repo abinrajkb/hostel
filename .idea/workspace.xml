@@ -62,6 +62,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hostel_office/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="92" column="9" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/Department/priority.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+            <state relative-caret-position="1245">
+              <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -270,6 +282,11 @@
             <path>
               <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
               <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
+              <item name="Hostel_office" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hostels.cusat.ac.in" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hostels.cusat.ac.in" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -421,7 +438,8 @@
       <workItem from="1559981868624" duration="53018000" />
       <workItem from="1560190899927" duration="1783000" />
       <workItem from="1560192718106" duration="1940000" />
-      <workItem from="1560195368953" duration="248000" />
+      <workItem from="1560195368953" duration="1681000" />
+      <workItem from="1560234581356" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="added ico">
       <created>1558504175793</created>
@@ -689,11 +707,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560194388647</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Incomplete version.">
+      <created>1560195692667</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1560195692667</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340050000" />
+    <option name="totallyTimeSpent" value="341831000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -706,8 +731,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.15250379" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.15477997" />
       <window_info id="Structure" order="1" sideWeight="0.50121063" side_tool="true" weight="0.13657056" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -721,7 +747,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49889135" weight="0.32792208" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" weight="0.3293348" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50110865" side_tool="true" weight="0.35223556" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" visible="true" weight="0.36363637" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924126" weight="0.9512987" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32954547" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -934,16 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hostel_office/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template/Application/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1041,6 +1057,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7350">
@@ -1072,10 +1095,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hostel/settings.py">
+    <entry file="file://$PROJECT_DIR$/Hostel_office/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+        <state relative-caret-position="90">
+          <caret line="92" column="9" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
