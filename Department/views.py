@@ -29,7 +29,7 @@ def index(request):
 @user_passes_test(test, redirect_field_name='/')
 def get_data(request):
     models = Applications.objects.all().filter(Department=request.user.Department_portal,
-                                               Course_of_study=request.POST['course'])
+                                               Course_of_study=request.POST['course'], Year_of_Study__in=[2, 3, 4, 5])
 
     sortedmodels = sorted(models, key=lambda x: x.create_priority_value())
     return render(request, 'Department/get_data.html', {'models': sortedmodels})
