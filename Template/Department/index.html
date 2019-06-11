@@ -41,7 +41,8 @@
     <div style="float: left">
         <div class="rs-select2 js-select-simple select--no-search"
              style="font-size:small">
-            <select class="rs-select2 js-select-simple select--no-search" name="course" id="course" onchange="load_data()">
+            <select class="rs-select2 js-select-simple select--no-search" name="course" id="course"
+                    onchange="load_data()">
                 <option class="nav-link dropdown-toggle" href="#">choose course
                 </option>
                 {% for course in courses %}
@@ -63,8 +64,10 @@
         <table class="table table-bordered">
             <thead style="font-size: 12px">
             <tr>
+                <th data-field="SNo">SL.NO</th>
                 <th data-field="regno">Reg No.</th>
                 <th data-field="name">Name</th>
+                <th data-field="gender">Gender</th>
                 <th data-field="pin">Pin Code</th>
                 <th data-field="year_back">Year Back</th>
                 <th data-field="cat">Category</th>

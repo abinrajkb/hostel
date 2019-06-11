@@ -65,3 +65,5 @@ class VerifiedUser(AbstractUser):
 
 class ApplicationSettings(models.Model):
     active_applications = models.BooleanField(default=False)
+    first_years = models.BooleanField(default=True)
+    senior_or_first_year = models.BooleanField(default=True)

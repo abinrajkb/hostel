@@ -1207,4 +1207,23 @@ $("#fileInput").on('change', function () {
     change()
 });
 
+function print1() {
+    document.getElementById('print_button1').style.display='none';
+    document.getElementById('back_button').style.display = 'none';
+    console.log('hiiiii')
+    print()
+    document.getElementById('print_button1').style.display= 'inline-block';
 
+    document.getElementById('back_button').style.display = 'inline-block';
+
+
+}
+function goback() {
+          $.ajax('/office/', {
+        method: 'get',
+
+        success: function (data) {
+            $("html").html(data)
+        }
+    });
+}

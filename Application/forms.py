@@ -149,7 +149,13 @@ class ApplicationForm(ModelForm):
         try:
             allow_application = ApplicationSettings.objects.get(pk=1)
             course = cleaned_data["Course_of_study"]
+            year = self.cleaned_data["Year_of_Study"]
+            if course in exeception_list:
+                self.instance.verified_department = True
             if course not in exeception_list and not allow_application.active_applications:
+                if year == 1 and allow_application.first_years:
+                    return True
+
                 self.add_error("Course_of_study", "The Time Frame for this Application is over")
 
         except KeyError:

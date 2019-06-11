@@ -1,8 +1,10 @@
 {% for model in models %}
     {% if model.Pincode %}
         <tr>
+            <td>{{ forloop.counter }}</td>
             <td style="" class="reg_no">{{ model.Registration_No }}</td>
             <td style="">{{ model.Name }}</td>
+            <td> {{ model.Gender }}</td>
             <td style="" class="pincode"><input type="number" value="{{ model.Pincode }}" class="pin"></td>
             <td style="" class="year_back"><label class="cont1">
                 <input type="checkbox" class="year"
@@ -23,9 +25,10 @@
             <td style="" class="button">
                 <button class="login100-form-btn allotment_submit" id="button_submit"
                         {% if model.verified_department %}
-                       style="background-color: #b5b3b2"
+                        style="background-color: #b5b3b2"
                         {% endif %}
-                        onclick="changeColor(this)">Submit</button>
+                        onclick="changeColor(this)">Submit
+                </button>
             </td>
         </tr>
     {% endif %}

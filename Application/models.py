@@ -363,7 +363,7 @@ district_choices = [(None, 'District'), ('Anantapur', 'Anantapur'), ('Chittoor',
 gender_select = ((None, "Gender"),
                  ("Male", "Male"),
                  ("Female", "Female"),
-                 ("Other", "Other"))
+                 ("Female", "Other"))
 category_select = ((None, 'Reservations'),
                    ("SC", "SC"),
                    ("ST", "ST"),
@@ -493,35 +493,56 @@ class Applications(models.Model):
     Hostel_admitted = CharField(max_length=255, choices=hostel_select, default=None, blank=True, null=True)
     Room_No = CharField(max_length=255, default=0)
 
+    # def create_priority_value(self):
+    #     priority_value = self.distance
+    #     if self.admitted == 1:
+    #         priority_value += 100000000
+    #     if self.Physically_Handicapped:
+    #         priority_value += 10000000
+    #
+    #     if self.Prime_Ministers_program or self.State == "Lakshadweep (UT)":
+    #         priority_value += 1000000
+    #     if (self.Category == "SC" or self.Category == "ST" or self.Category == "OEC"):
+    #         if (self.category_isvalid == 1):
+    #             priority_value += 100000
+    #         else:
+    #             priority_value += 0
+    #
+    #     if self.Category == "OBC":
+    #         if (self.category_isvalid == 1):
+    #             priority_value += 50000
+    #         else:
+    #             priority_value += 0
+    #
+    #     priority_value += self.Year_of_Study * 10000
+    #     # priority_value -= self.CAT_Rank
+    #     print(priority_value)
+    #     return priority_value
+
     def create_priority_value(self):
         priority_value = self.distance
-        if self.admitted == 1:
-            priority_value += 100000000
-        if self.Physically_Handicapped:
-            priority_value += 10000000
-
+        if self.Category == 'SC' or self.Category == 'ST':
+            if (self.category_isvalid == 1):
+                priority_value += 100000000
+            else:
+                priority_value += 0
+        if self.Category == 'OEC':
+            if (self.category_isvalid == 1):
+                priority_value += 5000000
+            else:
+                priority_value +=0
         if self.Prime_Ministers_program or self.State == "Lakshadweep (UT)":
+            priority_value += 10000000
+        if self.Physically_Handicapped:
             priority_value += 1000000
-        if (self.Category == "SC" or self.Category == "ST" or self.Category == "OEC"):
-            if (self.category_isvalid == 1):
+        if self.Category == 'OBC':
+            if(self.category_isvalid == 1):
                 priority_value += 100000
-            else:
-                priority_value += 0
-
-        if self.Category == "OBC":
-            if (self.category_isvalid == 1):
-                priority_value += 50000
-            else:
-                priority_value += 0
-
         priority_value += self.Year_of_Study * 10000
-        # priority_value -= self.CAT_Rank
-        print(priority_value)
         return priority_value
 
     def distance_valid(self):
-        if (
-                self.Category == 'SC' or self.Category == 'ST' or self.Category == 'OEC' or self.Physically_Handicapped == '1'):
+        if (self.Category == 'SC' or self.Category == 'ST' or self.Category == 'OEC' or self.Physically_Handicapped == '1'):
             return True
         else:
             if (self.distance < 25):

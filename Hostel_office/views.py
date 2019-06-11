@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from Application.models import Applications
 from login.forms import UserForm
-from login.models import VerifiedUser
+from login.models import VerifiedUser, ApplicationSettings
 
 
 def test(user):
@@ -56,9 +56,12 @@ def index(request):
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
 def get_data(request):
-    # print(request.POST)
+    print(request.POST)
     models = Applications.objects.all().filter(Department=request.POST['dept'], Course_of_study=request.POST['course'],
-                                               Gender=request.POST['gender'], verified_department='1', year_back='0')
+                                               Gender=request.POST['gender'], verified_department='1', year_back='0',
+                                               Keralite=request.POST['keralite'])
+
+
     sortedmodels = sorted(models, key=lambda x: x.create_priority_value(), reverse=True)
     return render(request, 'Hostel_office/get_data.html', {'models': sortedmodels})
 
@@ -176,12 +179,29 @@ def create(request):
     else:
         return HttpResponseRedirect('/office/add_dept/')
 
-
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
 def printdata(request):
     print(request.POST['regno'])
-    return HttpResponse('None')
+    models = Applications.objects.get(Registration_No=request.POST['regno'])
+    return render(request, 'Hostel_office/printuser.html', {'models': models})
 
 
-def printuser(request):
-    print('hiii')
-    render(request, 'Hostel_office/printuser.html')
+@login_required(redirect_field_name='/auth/')
+@user_passes_test(test, redirect_field_name='/')
+def control(request):
+    settings = ApplicationSettings.objects.get(pk=1)
+    if request.method=="POST":
+        if "firstyear" in request.POST:
+            settings.first_years = not settings.first_years
+            settings.save()
+
+        if "close" in request.POST:
+            settings.active_applications = not settings.active_applications
+            settings.save()
+
+        if "senior" in request.POST:
+            settings.senior_or_first_year = not settings.senior_or_first_year
+            settings.save()
+
+    return render(request,"Hostel_office/control setting.html",{"setting":settings})

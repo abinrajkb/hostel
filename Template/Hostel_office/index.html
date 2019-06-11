@@ -73,9 +73,20 @@
         <div style="float: left">
             <div class="rs-select2 js-select-simple select--no-search"
                  style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="keralite" onchange="load_data()">
+                    <option value="1">Keralite</option>
+                    <option value="0">Non Keralite</option>
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+        <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
                 <select class="rs-select2 js-select-simple select--no-search" id="gender" onchange="load_data()">
-                    {#                    <option class="nav-link dropdown-toggle" href="#">choose gender#}
-                    {#                    </option>#}
+
                     <option value="male">male</option>
                     <option value="female">female</option>
                     <option value="other">other</option>

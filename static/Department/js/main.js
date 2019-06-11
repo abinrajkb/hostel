@@ -160,18 +160,18 @@ function priority() {
             csrfmiddlewaretoken: csrf
         },
         success: function (data) {
-            back_data = $("html").html()
+            back_data = $("html").html();
             $("html").html(data)
         }
     });
 }
 
 function goback() {
-          $.ajax('/department/', {
+    $.ajax('/department/', {
         method: 'get',
 
         success: function (data) {
             $("html").html(data)
         }
     });
-    }
+}

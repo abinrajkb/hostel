@@ -2,6 +2,7 @@ function load_data() {
     var dept = document.getElementById("dept").value;
     var course = document.getElementById("course").value;
     var gender = document.getElementById("gender").value;
+    var keralite = document.getElementById("keralite").value;
     var csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
     $.ajax("/office/getdata/", {
         method: "post",
@@ -9,6 +10,7 @@ function load_data() {
             dept: dept,
             course: course,
             gender: gender,
+            keralite : keralite,
             csrfmiddlewaretoken: csrf,
         },
 
@@ -43,6 +45,10 @@ function load_data() {
                     data: {
                         regno: select,
                         csrfmiddlewaretoken: csrf
+                    },
+                    success: function (data) {
+                        back_data =$('html').html()
+                        $('html').html(data)
                     }
                 });
 
@@ -279,18 +285,3 @@ function load_course() {
 
 load_dept_office();
 
-$(".print_button").on("click", function () {
-    var select = $($(this).parent().parent()).children(".reg_no").val();
-    console.log(select);
-    $.ajax("/office/printdata/", {
-        method: "post",
-        data: {
-            regno: select,
-            csrfmiddlewaretoken: csrf
-        },
-        success:function (data) {
-            window.location.href= "printuser/"
-        }
-    });
-
-});

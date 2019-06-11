@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs custom-navbar">
         <a class="navbar-brand " href="{% url 'Homapage:homepage' %}">
             <img class="img-responsive2" src="{% static 'images/logo.svg' %}" width="40" height="40" alt="CUSAT"> <span
                 id="sp">CENTRAL OFFICE FOR UNIVERSITY HOSTELS</span>
@@ -40,153 +40,81 @@
 {% endblock %}
 
 {% block contents %}
-
-    {% csrf_token %}
-    {% comment %} <div class="container mt-3">
-
-        <div style="float: left">
-            <div class="rs-select2 js-select-simple select--no-search"
-                 style="font-size:small">
-                <select class="rs-select2 js-select-simple select--no-search" id="dept" onchange="load_courses()">
-                    {% for department in departments %}
-                        <option class="dropdown-item" href="#">{{ department }}</option>
-                    {% endfor %}
-                    <option class="dropdown-item" href="#">other</option>
-                </select>
-                <div class="select-dropdown">
-                </div>
-            </div>
+    <div class="row">
+        <div class="sidenav">
+            <a href="{% url 'Hostel_office:add dept' %}">Add Department User</a>
+            <a href="{% url 'Hostel_office:application_control' %}">Start/Stop Applications</a>
         </div>
 
-        <div style="float: left">
-            <div class="rs-select2 js-select-simple select--no-search"
-                 style="font-size:small">
-                <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="course_option()">
-                    <option class="nav-link dropdown-toggle" href="#">choose course
-                    </option>
-                </select>
-                <div class="select-dropdown">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-    <input type="text"  name="dept_other" placeholder="Enter the department" id="dept_other"
-                       style="border-bottom: #1b1e21;padding: 20px;">
+        {% csrf_token %}
+        <div class="limiter">
+            <div class="container-login100" style="background-color: white">
+                <div class="wrap-login100">
+                    <div class="tab-group">
+                        <button style="width: 100%; background-color: #c4c5c6">ADD DEPARTMENT</button>
+                    </div>
+                    <div id="Login" class="tabcontent">
+                        <form id="create_dept" action='{% url "Hostel_office:create" %}'
+                              class="login100-form validate-form"
+                              onsubmit="hashing()" method="post">{% csrf_token %}
 
 
-        <div style="float: left; display: none;" id="dept_oth">
-            <div class="rs-select2 js-select-simple select--no-search"
-                 style="font-size:small">
-                <input class="input100" type="text" name="dept_other" placeholder="Enter the department" id="dept_other"
-                       style="border-bottom: #1b1e21;padding: 20px;">
-            </div>
-        </div>
-
-        <div style="float: left; display: none;" id="course_oth">
-            <div class="rs-select2 js-select-simple select--no-search"
-                 style="font-size:small">
-                <input class="input100" type="text" name="dept_other" placeholder="Enter the course" id="course_other"
-                       style="border-bottom: #1b1e21;padding: 20px;">
-            </div>
-        </div>
-
-    </div>
-{% endcomment %}
-
-
-
-    <div class="limiter">
-        <div class="container-login100" style="background-color: white">
-            <div class="wrap-login100">
-                {% comment %} <div class="login100-form-title" style="background-image: url({% static 'images/cusat.jpg' %});">
-					<span class="login100-form-title-1">
-						CUSAT HOSTELS
-
-					</span>
-
-            </div>{% endcomment %}
-
-                <div class="tab-group">
-                    <button style="width: 100%; background-color: #c4c5c6">ADD DEPARTMENT</button>
-                    {#                <button id="reg_btn">Signup</button>#}
-                </div>
-
-
-                <div id="Login" class="tabcontent">
-                    <form id="create_dept" action='{% url "Hostel_office:create" %}' class="login100-form validate-form"
-                          onsubmit="hashing()" method="post">{% csrf_token %}
-
-
-                        <div class="wrap-input100 validate-input m-b-18" data-validate="Department is required">
-                            <span class="label-input100">Department</span>
-                            <div class="rs-select2 js-select-simple select--no-search" style="font-size:small">
-                                <select name="dept" id="dept" onchange="load_courses()">
-                                    <optgroup label="Department"></optgroup>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                            <span class="focus-input100"></span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input m-b-18" style="border:None;font-size:small"
-                             data-validate="Course is required">
-                            <input name = "course" id = "courses" hidden>
-                            <span class="label-input100">Course</span>
-
-                            <div id="course" onchange="">
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Department is required">
+                                <span class="label-input100">Department</span>
+                                <div class="rs-select2 js-select-simple select--no-search" style="font-size:small">
+                                    <select name="dept" id="dept" onchange="load_courses()">
+                                        <optgroup label="Department"></optgroup>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                                <span class="focus-input100"></span>
                             </div>
 
-                            <span class="focus-input100"></span>
-                        </div>
-                        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                            <span class="label-input100">Username</span>
-                            <input class="input100" type="text" name="username" placeholder="Enter Username" required>
-                            <span class="focus-input100"></span>
-                        </div>
-                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                            <span class="label-input100">Password</span>
-                            <input class="input100" id='password1' type="password" name="password1"
-                                   placeholder="Enter password" required>
-                            <span class="focus-input100"></span>
-                        </div>
-                        <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                            <span class="label-input100">Confirm Password</span>
-                            <input class="input100" id="password2" type="password" name="password2"
-                                   placeholder="Re-Enter password" required>
-                            <span class="focus-input100"></span>
-                        </div>
-                        {% comment %}<div class="flex-sb-m w-full p-b-30">
+                            <div class="wrap-input100 validate-input m-b-18" style="border:None;font-size:small"
+                                 data-validate="Course is required">
+                                <input name="course" id="courses" hidden>
+                                <span class="label-input100">Course</span>
 
+                                <div id="course" onchange="">
+                                </div>
 
-                        <div>
-                            <a href="#" class="txt1">
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </div>{% endcomment %}
-
-                        <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Create
-                            </button>
-                        </div>
-                    </form>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                                <span class="label-input100">Username</span>
+                                <input class="input100" type="text" name="username" placeholder="Enter Username"
+                                       required>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Password</span>
+                                <input class="input100" id='password1' type="password" name="password1"
+                                       placeholder="Enter password" required>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                                <span class="label-input100">Confirm Password</span>
+                                <input class="input100" id="password2" type="password" name="password2"
+                                       placeholder="Re-Enter password" required>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Create
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    {% if msg %}
+                        <p id="error1">{{ msg }}</p>
+                    {% else %}
+                        <p id="error">The passwords must be same</p>
+                    {% endif %}
                 </div>
-                {% if msg %}
-                <p id="error1">{{ msg }}</p>
-                {% else %}
-                <p id="error">The passwords must be same</p>
-                {% endif %}
             </div>
-
         </div>
 
     </div>
-
-    </div>
-
 
 
 

@@ -966,6 +966,7 @@ tr {
     text-align: center;
     display: none;
 }
+
 .main-button {
 
     position: relative;
@@ -1023,6 +1024,38 @@ tr {
     opacity: 1;
 }
 
-.data  {
+.data {
     text-align: center;
+}
+
+
+.sidenav {
+    /*margin-top: 65px;*/
+    height: 100vh;
+    width: 250px;
+
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    /*padding-top: 80px;*/
+    position: relative;
+
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.custom-navbar{
+    /*position: fixed;*/
 }

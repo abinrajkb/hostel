@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import requests, json
 from Application.models import Applications
-from login.models import VerifiedUser
+from login.models import VerifiedUser, ApplicationSettings
 
 
 def test(user):
@@ -28,8 +28,13 @@ def index(request):
 @login_required(redirect_field_name='/auth/')
 @user_passes_test(test, redirect_field_name='/')
 def get_data(request):
+    settings = ApplicationSettings.objects.get(pk=1)
+    if settings.senior_or_first_year:
+        years = [2,3,4,5]
+    else:
+        years =[1]
     models = Applications.objects.all().filter(Department=request.user.Department_portal,
-                                               Course_of_study=request.POST['course'], Year_of_Study__in=[2, 3, 4, 5])
+                                               Course_of_study=request.POST['course'], Year_of_Study__in=years)
 
     sortedmodels = sorted(models, key=lambda x: x.create_priority_value())
     return render(request, 'Department/get_data.html', {'models': sortedmodels})
@@ -78,15 +83,34 @@ def priority(request):
     course = request.POST['course']
     user = (request.user)
     department = request.user.Department_portal;
-    models = Applications.objects.all().filter(Department=department, Course_of_study=course,
-                                               verified_department='1', year_back='0', Year_of_Study=not 1)
-    models_valid = []
-    for i in models:
-        if i.distance_valid():
-            models_valid.append(i)
+    models_keralite = Applications.objects.all().filter(Department=department, Course_of_study=course,
+                                                        verified_department='1', year_back='0', Keralite='1')
+    models_nonkeralite = Applications.objects.all().filter(Department=department, Course_of_study=course,
+                                                           verified_department='1', year_back='0', Keralite='0')
+    models_valid_malekeralite = []
+    models_valid_malenonkeralite = []
+    models_valid_femalekeralite = []
+    models_valid_femalenonkeralite = []
 
-    print(models_valid)
-    sortedmodels = sorted(models_valid, key=lambda x: x.create_priority_value(), reverse=True)
-    print(sortedmodels)
-    return render(request, 'Department/priority.html', {'models': sortedmodels, 'Department': department,
-                                                        'Course': course})
+    for i in models_keralite:
+        if i.distance_valid():
+            if i.Gender == 'Male':
+                models_valid_malekeralite.append(i)
+            else:
+                models_valid_femalekeralite.append(i)
+
+    for i in models_nonkeralite:
+        if i.distance_valid():
+            if i.Gender == 'Male':
+                models_valid_malenonkeralite.append(i)
+            else:
+                models_valid_femalenonkeralite.append(i)
+
+    sortedmodels_malekeralite = sorted(models_valid_malekeralite, key=lambda x: x.create_priority_value(), reverse=True)
+    sortedmodels_malenonkeralite = sorted(models_valid_malenonkeralite, key=lambda x: x.create_priority_value(), reverse=True)
+    sortedmodels_femalekeralite = sorted(models_valid_femalekeralite, key=lambda x: x.create_priority_value(), reverse=True)
+    sortedmodels_femalenonkeralite = sorted(models_valid_femalenonkeralite, key=lambda x: x.create_priority_value(), reverse=True)
+    return render(request, 'Department/priority.html',
+                  {'m_keralite': sortedmodels_malekeralite, 'f_keralite': sortedmodels_femalekeralite, 'm_nonkeralite': sortedmodels_malenonkeralite,
+                   'f_nonkeralite': sortedmodels_femalenonkeralite, 'Department': department,
+                   'Course': course})

@@ -11,5 +11,5 @@ urlpatterns = [
     path('add_dept/', views.add_dept, name="add dept"),
     path('create/', views.create, name="create"),
     path('printdata/', views.printdata, name="printdata"),
-    path('printuser/' ,views.printuser, name="printuser"),
+    path('control/', views.control, name='application_control')
 ]
