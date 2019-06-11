@@ -79,7 +79,7 @@ def priority(request):
     user = (request.user)
     department = request.user.Department_portal;
     models = Applications.objects.all().filter(Department=department, Course_of_study=course,
-                                               verified_department='1', year_back='0')
+                                               verified_department='1', year_back='0', Year_of_Study=not 1)
     models_valid = []
     for i in models:
         if i.distance_valid():
