@@ -1,7 +1,8 @@
 # hostels.cusat.ac.in
 
 :computer: :boom:  The official website for hostel management system of CUSAT (Cochin University of Science And Technology) <br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spoiler alert: This version has been decommissioned. :broken_heart:
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spoiler alert: This version has been decommissioned. :broken_heart:-->
+ <p>visit @ <a href="https://hostels.cusat.ac.in/">hostels.cusat.ac.in</a>&nbsp;:heart:</p> 
  
  ### Main Features include..
  
